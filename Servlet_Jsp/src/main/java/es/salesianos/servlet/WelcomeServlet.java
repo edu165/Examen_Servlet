@@ -20,12 +20,15 @@ import es.salesianos.utils.DateConverter;
 public class WelcomeServlet extends HttpServlet{
 	
 	private Service service = new Service();
+	private Repository repository = new Repository();
 	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		User user = service.assembleUserFromRequest(req);
+		repostiroy.createTable1() ;
+		repostiroy.createTable1() ;
 		service.insertOrUpdate(user);
-		service.
+		
 		
 		redirect(req,resp);
 	}
