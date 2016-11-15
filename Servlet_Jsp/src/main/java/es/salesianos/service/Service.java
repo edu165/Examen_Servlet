@@ -11,12 +11,12 @@ import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.User;
 import es.salesianos.model.assembler.UserAssembler;
 import es.salesianos.repository.Repository;
-import es.salesianos.utils.DateConverter;
+
 
 public class Service {
 	
 	private Repository repository = new Repository();
-	private DateConverter converter = new DateConverter();
+	
 	private ConnectionManager manager = new ConnectionH2();
 	
 	
@@ -37,6 +37,9 @@ public class Service {
 	
 	
 	public List<User> listAllUsers() {
+		return repository.searchAll();
+	}
+	public List<User> listAllUsers2() {
 		return repository.searchAll();
 	}
 	

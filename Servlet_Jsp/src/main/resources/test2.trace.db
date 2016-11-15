@@ -800,3 +800,7 @@ DELETE idioma from Paises where pais=?  [42102-192]
 org.h2.jdbc.JdbcSQLException: Tabla "IDIOMA" no encontrada
 Table "IDIOMA" not found; SQL statement:
 DELETE idioma from Paises where pais=?  [42102-192]
+2016-11-15 09:35:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "IDIOMA" no encontrada
+Table "IDIOMA" not found; SQL statement:
+DELETE idioma from Paises where pais=?  [42102-192]

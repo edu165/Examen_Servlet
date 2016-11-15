@@ -1,5 +1,4 @@
 package es.salesianos.servlet;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Date;
@@ -7,7 +6,7 @@ import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest; 
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.connection.ConnectionH2;
@@ -15,7 +14,9 @@ import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.User;
 import es.salesianos.model.assembler.UserAssembler;
 import es.salesianos.service.Service;
-import es.salesianos.utils.DateConverter;
+
+import es.salesianos.repository.Repository;
+
 
 public class WelcomeServlet extends HttpServlet{
 	
@@ -25,9 +26,10 @@ public class WelcomeServlet extends HttpServlet{
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		User user = service.assembleUserFromRequest(req);
-		repostiroy.createTable1() ;
-		repostiroy.createTable1() ;
+       repository.createTable();
+	
 		service.insertOrUpdate(user);
+
 		
 		
 		redirect(req,resp);

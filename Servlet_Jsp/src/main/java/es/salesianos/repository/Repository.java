@@ -4,56 +4,35 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
+import es.salesianos.model.Idiomas;
 import es.salesianos.model.User;
+
+
+
 
 public class Repository {
 	
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test2";
-	ConnectionManager manager = new ConnectionH2();
-	public void createTable1() {
+	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test3";
+	static ConnectionManager manager = new ConnectionH2();
+	
+		Connection connection = null;
+		Statement statement = null;
+		
+	public void createTable() {
 		Connection connection = null;
 		Statement statement = null;
 
 		try {
-			connection = ConnectionConfiguration.getConnection();
-			statement = connection.createStatement();
-			statement.execute("create table IF NOT EXISTS Paises(pais varchar(25) PRIMARY KEY,idioma varchar(25));");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (statement != null) {
-				try {
-					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
-	public void createTable2() {
-		Connection connection = null;
-		Statement statement = null;
-
-		try {
-			connection = ConnectionConfiguration.getConnection();
+			connection = manager.open(jdbcUrl);
 			statement = connection.createStatement();
 			statement.execute("create table IF NOT EXISTS Idiomas(idioma varchar(25) PRIMARY KEY);");
+			statement.execute("create table IF NOT EXISTS Paises(pais varchar(25) PRIMARY KEY,idioma varchar(25));");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -103,7 +82,7 @@ public class Repository {
 		return userInDatabase;
 	}
 
-	private void close(PreparedStatement prepareStatement) {
+	private static void close(PreparedStatement prepareStatement) {
 		try {
 			prepareStatement.close();
 		} catch (SQLException e) {
@@ -112,7 +91,7 @@ public class Repository {
 		}
 	}
 
-	private void close(ResultSet resultSet) {
+	private static void close(ResultSet resultSet) {
 		try {
 			resultSet.close();
 		} catch (SQLException e) {
@@ -161,7 +140,7 @@ public class Repository {
 		manager.close(conn);
 	}
 
-	public List<User> searchAll() {
+	public  List<User> searchAll() {
 		List<User> listUsers= new ArrayList<User>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -173,6 +152,35 @@ public class Repository {
 				User userInDatabase = new User();
 				userInDatabase.setPais(resultSet.getString(1));
 				userInDatabase.setIdioma(resultSet.getString(2));
+				
+				
+				listUsers.add(userInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(resultSet);
+			close(prepareStatement);
+		}
+		
+		
+		manager.close(conn);
+		return listUsers;
+	}
+	public static List<Idiomas>  searchAll2() {
+		List<Idiomas> listUsers= new ArrayList<Idiomas>();
+		Connection conn = manager.open(jdbcUrl);
+		ResultSet resultSet = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM Idiomas");
+			resultSet = prepareStatement.executeQuery();
+			while(resultSet.next()){
+			Idiomas userInDatabase = new Idiomas();
+				
+				userInDatabase.setIdiomas(resultSet.getString(1));
 				
 				
 				listUsers.add(userInDatabase);
