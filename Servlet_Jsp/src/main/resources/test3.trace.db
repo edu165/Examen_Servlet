@@ -6,3 +6,15 @@ SELECT * FROM Idiomas [42102-192]
 org.h2.jdbc.JdbcSQLException: Tabla "IDIOMAS" no encontrada
 Table "IDIOMAS" not found; SQL statement:
 SELECT * FROM Idiomas [42102-192]
+2016-11-15 10:17:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "IDIOMAS" no encontrada
+Table "IDIOMAS" not found; SQL statement:
+SELECT * FROM Idiomas [42102-192]
+2016-11-15 10:20:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "PAISES" no encontrada
+Table "PAISES" not found; SQL statement:
+SELECT * FROM Paises [42102-192]
+2016-11-15 10:21:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "PAISES" no encontrada
+Table "PAISES" not found; SQL statement:
+SELECT * FROM Paises [42102-192]

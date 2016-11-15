@@ -18,7 +18,7 @@ import es.salesianos.model.User;
 
 public class Repository {
 	
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test3";
+	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test2";
 	static ConnectionManager manager = new ConnectionH2();
 	
 		Connection connection = null;
@@ -140,7 +140,7 @@ public class Repository {
 		manager.close(conn);
 	}
 
-	public  List<User> searchAll() {
+	public static List searchAll() {
 		List<User> listUsers= new ArrayList<User>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -169,35 +169,7 @@ public class Repository {
 		manager.close(conn);
 		return listUsers;
 	}
-	public static List<Idiomas>  searchAll2() {
-		List<Idiomas> listUsers= new ArrayList<Idiomas>();
-		Connection conn = manager.open(jdbcUrl);
-		ResultSet resultSet = null;
-		PreparedStatement prepareStatement = null;
-		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM Idiomas");
-			resultSet = prepareStatement.executeQuery();
-			while(resultSet.next()){
-			Idiomas userInDatabase = new Idiomas();
-				
-				userInDatabase.setIdiomas(resultSet.getString(1));
-				
-				
-				listUsers.add(userInDatabase);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}finally {
-			close(resultSet);
-			close(prepareStatement);
-		}
-		
-		
-		manager.close(conn);
-		return listUsers;
-	}
+	
 	public void delete(String user) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
