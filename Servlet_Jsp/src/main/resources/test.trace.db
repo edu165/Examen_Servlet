@@ -1356,3 +1356,11 @@ Caused by: org.h2.jdbc.JdbcSQLException: La conexión no fue cerrada por la apli
 The connection was not closed by the application and is garbage collected [90018-192]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 32 more
+2016-11-15 23:24:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "IDIOMAS" no encontrada
+Table "IDIOMAS" not found; SQL statement:
+SELECT * FROM Idiomas [42102-192]
+2016-11-15 23:24:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "IDIOMAS" no encontrada
+Table "IDIOMAS" not found; SQL statement:
+SELECT * FROM Idiomas [42102-192]

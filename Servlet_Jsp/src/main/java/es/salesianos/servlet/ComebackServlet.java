@@ -28,21 +28,16 @@ public class ComebackServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-		String user = req.getParameter("user");
-		req.setAttribute("nom", user);
-		repository.delete(user);
-
+		String idioma = req.getParameter("idioma");
+		req.setAttribute("idioma", idioma);
+		repository.deleteIdiomas(idioma);
+		repository.deletePais(idioma);
+		
 		redirect(req,resp);
+	
 	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String user = req.getParameter("user");
-		req.setAttribute("nom", user);
-		
-		
-		repository.delete(user);
-		
-		redirect(req,resp);
 		
 	}
 

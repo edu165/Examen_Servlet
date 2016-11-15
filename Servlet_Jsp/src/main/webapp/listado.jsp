@@ -67,15 +67,11 @@ document.edu.submit();
 				<td><c:out value="${user1.idioma}"/> </td>
 				<td>
 		<form method="post" action="borrar"  onclick="BorrarCliente() "name="edu">
-	<input type="hidden"  value="${user1.pais}" name="user">
+	<input type="hidden"  value="${user1.idioma}" name="idioma">
 	
 		<input type="submit"  value="Borrar Completo">
 	</form>	</td>
-		<td>
-		<form method="post" action="borrar2"  onclick="BorrarCliente() "name="edu">
-	<input type="hidden"  value="${user1.pais}" name="user">
-	
-		<input type="submit"  value="Borrar Idioma"></td>
+		
 	</form>	
 	</tr>
 		</c:forEach>

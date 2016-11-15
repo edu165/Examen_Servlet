@@ -246,14 +246,17 @@ public class Repository {
 		return listUsers;
 	}
 	
-	public void delete(String user) {
+	
+	public void deletePais(String idioma) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
 		try {
-		    preparedStatement = conn.prepareStatement("DELETE FROM paises WHERE pais=?");
-			preparedStatement.setString(1, user);
-			preparedStatement.executeUpdate();
+		    preparedStatement = conn.prepareStatement("DELETE from Paises where idioma=? ");
+			preparedStatement.setString(1, idioma);
+			
+		preparedStatement.executeUpdate();
+			
 
 		
 
@@ -276,14 +279,16 @@ public class Repository {
 			}
 		}
 	}
-	public void delete2(String user) {
+	public void deleteIdiomas(String idioma) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
 		try {
-		    preparedStatement = conn.prepareStatement("DELETE idioma from Paises where pais=? ");
-			preparedStatement.setString(1, user);
+		   
+			 preparedStatement = conn.prepareStatement("DELETE  from Idiomas where idioma=? ");
+				preparedStatement.setString(1, idioma);
 			preparedStatement.executeUpdate();
+			
 
 		
 

@@ -11,7 +11,7 @@ public class IdiomasAssembler {
 		Idiomas idioma = new Idiomas();
 		
 		
-		String idiomas = req.getParameter("nuevoidioma");
+		String idiomas = req.getParameter("idioma2");
 	
 		
 		idioma.setIdioma(idiomas);
