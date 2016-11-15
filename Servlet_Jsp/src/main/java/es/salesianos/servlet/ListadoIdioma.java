@@ -18,8 +18,8 @@ public class ListadoIdioma extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<User> listAllUsers = servicio.listAllUsers2();
-		req.setAttribute("listAllUsers", listAllUsers);
+		
+		
 		redirect(req,resp);
 	
 	}

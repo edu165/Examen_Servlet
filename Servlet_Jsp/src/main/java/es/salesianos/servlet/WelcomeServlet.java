@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
+import es.salesianos.model.Idiomas;
 import es.salesianos.model.User;
 import es.salesianos.model.assembler.UserAssembler;
 import es.salesianos.service.Service;
@@ -26,9 +27,11 @@ public class WelcomeServlet extends HttpServlet{
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		User user = service.assembleUserFromRequest(req);
-       repository.createTable();
-	
-		service.insertOrUpdate(user);
+		Idiomas idiomas = service.assembleIdiomasrFromRequest(req);
+		repository.createTableIdiomas();
+		repository.createTablePaises();
+	service.insertOrUpdate(user);
+		repository.insert(idiomas);
 
 		
 		

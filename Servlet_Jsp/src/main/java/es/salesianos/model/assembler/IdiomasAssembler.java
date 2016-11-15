@@ -11,10 +11,10 @@ public class IdiomasAssembler {
 		Idiomas idioma = new Idiomas();
 		
 		
-		String idiomas = req.getParameter("idioma2");
+		String idiomas = req.getParameter("nuevoidioma");
 	
 		
-		idioma.setIdiomas(idiomas);
+		idioma.setIdioma(idiomas);
 		
 		return idioma;
 	}

@@ -17,7 +17,6 @@ var resul = confirm('¿Desea borrar el pais seleccionado?');
 if (resul = true)
 {
 document.edu.submit();
-
 }
 }
 </script>

@@ -2,22 +2,20 @@ package es.salesianos.model;
 
 public class Idiomas {
 		
-		private String idiomas;
+		private String idioma;
 
 		
-public String getIdiomas() {
-			return idiomas;
+public String getIdioma() {
+			return idioma;
 		}
-
-
-		public void setIdiomas(String idiomas) {
-			this.idiomas = idiomas;
+public void setIdioma(String idioma) {
+			this.idioma = idioma;
 		}
 
 
 @Override
 	public String toString() {
-		return "Idiomas [idioma=" + idiomas +  "]";
+		return "Idiomas [idioma=" + idioma +  "]";
 	}
 	
 	

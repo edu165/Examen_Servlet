@@ -24,7 +24,7 @@ public class Repository {
 		Connection connection = null;
 		Statement statement = null;
 		
-	public void createTable() {
+	public void createTableIdiomas() {
 		Connection connection = null;
 		Statement statement = null;
 
@@ -32,6 +32,36 @@ public class Repository {
 			connection = manager.open(jdbcUrl);
 			statement = connection.createStatement();
 			statement.execute("create table IF NOT EXISTS Idiomas(idioma varchar(25) PRIMARY KEY);");
+			statement.execute("create table IF NOT EXISTS Paises(pais varchar(25) PRIMARY KEY,idioma varchar(25));");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	public void createTablePaises() {
+		Connection connection = null;
+		Statement statement = null;
+
+		try {
+			connection = manager.open(jdbcUrl);
+			statement = connection.createStatement();
+			
 			statement.execute("create table IF NOT EXISTS Paises(pais varchar(25) PRIMARY KEY,idioma varchar(25));");
 
 		} catch (Exception e) {
@@ -120,6 +150,26 @@ public class Repository {
 		
 		manager.close(conn);
 	}
+	public void insert(Idiomas userFormulario) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement("INSERT INTO idiomas (idioma)" +
+					"VALUES (?)");
+			preparedStatement.setString(1, userFormulario.getIdioma());
+			
+			
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(preparedStatement);
+		}
+		
+		
+		manager.close(conn);
+	}
 
 	public void update(User userFormulario) {
 		Connection conn = manager.open(jdbcUrl);
@@ -139,7 +189,6 @@ public class Repository {
 		
 		manager.close(conn);
 	}
-
 	public static List searchAll() {
 		List<User> listUsers= new ArrayList<User>();
 		Connection conn = manager.open(jdbcUrl);
@@ -154,6 +203,33 @@ public class Repository {
 				userInDatabase.setIdioma(resultSet.getString(2));
 				
 				
+				listUsers.add(userInDatabase);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(resultSet);
+			close(prepareStatement);
+		}
+		
+		
+		manager.close(conn);
+		return listUsers;
+	}
+
+	public static List<Idiomas> searchAll2() {
+		List<Idiomas> listUsers= new ArrayList<Idiomas>();
+		Connection conn = manager.open(jdbcUrl);
+		ResultSet resultSet = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM Idiomas");
+			resultSet = prepareStatement.executeQuery();
+			while(resultSet.next()){
+				Idiomas userInDatabase = new Idiomas();
+				userInDatabase.setIdioma(resultSet.getString(1));
 				listUsers.add(userInDatabase);
 			}
 			
