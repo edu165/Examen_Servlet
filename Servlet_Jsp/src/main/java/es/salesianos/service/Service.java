@@ -17,6 +17,7 @@ import es.salesianos.repository.Repository;
 
 public class Service {
 	
+	
 	private Repository repository = new Repository();
 	
 	private ConnectionManager manager = new ConnectionH2();
@@ -26,6 +27,14 @@ public class Service {
 	}
 	public Idiomas assembleIdiomasrFromRequest(HttpServletRequest req) {
 		return IdiomasAssembler.assembleUserFrom(req);
+	}
+	public void CreateTable(){
+		repository.createTableIdiomas();
+		repository.createTablePaises();
+		
+	}
+	public void InsertIdiomas(Idiomas idiomas){
+		repository.insert(idiomas);
 	}
 
 
@@ -56,14 +65,11 @@ public class Service {
 	}
 	public void delete(String user){
 		Repository repository = new Repository();
-		repository.delete(user);
+		repository.deletePais(user);
+		repository.deleteIdiomas(user);
 	
 	}
-	public void delete2(String user){
-		Repository repository = new Repository();
-		repository.delete(user);
 	
-	}
 	
 	
 }

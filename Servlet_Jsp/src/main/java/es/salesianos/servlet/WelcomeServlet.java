@@ -28,10 +28,9 @@ public class WelcomeServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		User user = service.assembleUserFromRequest(req);
 		Idiomas idiomas = service.assembleIdiomasrFromRequest(req);
-		repository.createTableIdiomas();
-		repository.createTablePaises();
+		service.CreateTable();
 	service.insertOrUpdate(user);
-		repository.insert(idiomas);
+		service.InsertIdiomas(idiomas);
 
 		
 		

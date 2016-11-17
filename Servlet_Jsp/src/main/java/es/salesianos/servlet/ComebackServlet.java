@@ -21,6 +21,7 @@ import es.salesianos.service.Service;
 
 public class ComebackServlet extends HttpServlet{
 	private Repository repository = new  Repository();
+	private Service service = new Service();
 	
 	
 	
@@ -30,8 +31,7 @@ public class ComebackServlet extends HttpServlet{
 
 		String idioma = req.getParameter("idioma");
 		req.setAttribute("idioma", idioma);
-		repository.deleteIdiomas(idioma);
-		repository.deletePais(idioma);
+		service.delete(idioma);
 		
 		redirect(req,resp);
 	
