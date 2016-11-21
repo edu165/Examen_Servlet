@@ -22,7 +22,7 @@ import es.salesianos.repository.Repository;
 public class WelcomeServlet extends HttpServlet{
 	
 	private Service service = new Service();
-	private Repository repository = new Repository();
+
 	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

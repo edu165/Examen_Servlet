@@ -182,7 +182,7 @@ public class Repository {
 		
 		manager.close(conn);
 	}
-	public static List SearchAll() {
+	public static List SearchAll_Paises() {
 		List<User> listUsers= new ArrayList<User>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -212,7 +212,7 @@ public class Repository {
 		return listUsers;
 	}
 
-	public static List<Idiomas> SearchAll2() {
+	public static List<Idiomas> SearchAll_Idiomas() {
 		List<Idiomas> listUsers= new ArrayList<Idiomas>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;

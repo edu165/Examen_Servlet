@@ -16,12 +16,12 @@ import es.salesianos.service.Service;
 
 public class ListadoServlet extends HttpServlet {
 	
-	private Service servicio = new  Service();
+	private Service service = new  Service();
 	private Repository repositorio= new Repository();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<User> listAllUsers = repositorio.SearchAll();
+		List<User> listAllUsers = service.SearchAllPaises();
 				
 		req.setAttribute("listAllUsers", listAllUsers);
 		redirect(req,resp);

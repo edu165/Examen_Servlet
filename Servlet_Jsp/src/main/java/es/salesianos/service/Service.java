@@ -36,6 +36,10 @@ public class Service {
 	public void InsertIdiomas(Idiomas idiomas){
 		repository.InsertIdiomas(idiomas);
 	}
+	public List SearchAllPaises(){
+		return repository.SearchAll_Paises();
+	}
+	
 
 
 	public void InsertOrUpdate(User userFormulario) {

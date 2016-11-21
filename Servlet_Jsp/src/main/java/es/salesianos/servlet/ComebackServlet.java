@@ -20,7 +20,7 @@ import es.salesianos.service.Service;
 
 
 public class ComebackServlet extends HttpServlet{
-	private Repository repository = new  Repository();
+
 	private Service service = new Service();
 	
 	
@@ -36,10 +36,7 @@ public class ComebackServlet extends HttpServlet{
 		redirect(req,resp);
 	
 	}
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-	}
+	
 
 	private void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
