@@ -24,7 +24,7 @@ public class Repository {
 		Connection connection = null;
 		Statement statement = null;
 		
-	public void CreateTableIdiomas() {
+	public void Create_Table_Idiomas() {
 		
 		Connection connection = null;
 		Statement statement = null;

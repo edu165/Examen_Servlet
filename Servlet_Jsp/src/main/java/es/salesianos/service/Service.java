@@ -29,7 +29,7 @@ public class Service {
 		return IdiomasAssembler.assembleUserFrom(req);
 	}
 	public void CreateTable(){
-		repository.CreateTableIdiomas();
+		repository.Create_Table_Idiomas();
 		repository.CreateTablePaises();
 		
 	}
@@ -44,7 +44,7 @@ public class Service {
 
 	public void InsertOrUpdate(Pais userFormulario) {
 		Repository repository = new Repository();
-		repository.CreateTableIdiomas();
+		repository.Create_Table_Idiomas();
 		
 		Pais userInDatabase = repository.search(userFormulario);
 	
