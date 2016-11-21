@@ -11,7 +11,7 @@ import java.util.List;
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Idiomas;
-import es.salesianos.model.User;
+import es.salesianos.model.Pais;
 
 
 
@@ -78,19 +78,19 @@ public class Repository {
 		}
 	}
 
-	public User search(User userFormulario) {
-		User userInDatabase= null;
+	public Pais search(Pais PaisFormulario) {
+		Pais PaisInDatabase= null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
 		try {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises WHERE Pais = ?");
-			prepareStatement.setString(1, userFormulario.getPais());
+			prepareStatement.setString(1, PaisFormulario.getPais());
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
-				userInDatabase = new User();
-				userInDatabase.setPais(resultSet.getString(1));
-				userInDatabase.setIdioma(resultSet.getString(2));
+				PaisInDatabase = new Pais();
+				PaisInDatabase.setPais(resultSet.getString(1));
+				PaisInDatabase.setIdioma(resultSet.getString(2));
 			
 			}
 		} catch (SQLException e) {
@@ -102,7 +102,7 @@ public class Repository {
 			
 		}
 		manager.close(conn);
-		return userInDatabase;
+		return PaisInDatabase;
 	}
 
 	private static void ClosePreparedStatement(PreparedStatement prepareStatement) {
@@ -123,14 +123,14 @@ public class Repository {
 		}
 	}
 
-	public void InserPaises(User userFormulario) {
+	public void InserPaises(Pais PaisFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("INSERT INTO Paises (pais, idioma)" +
 					"VALUES (?, ?)");
-			preparedStatement.setString(1, userFormulario.getPais());
-			preparedStatement.setString(2, userFormulario.getIdioma());
+			preparedStatement.setString(1, PaisFormulario.getPais());
+			preparedStatement.setString(2, PaisFormulario.getIdioma());
 			
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -143,13 +143,13 @@ public class Repository {
 		
 		manager.close(conn);
 	}
-	public void InsertIdiomas(Idiomas userFormulario) {
+	public void InsertIdiomas(Idiomas PaisrFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("INSERT INTO idiomas (idioma)" +
 					"VALUES (?)");
-			preparedStatement.setString(1, userFormulario.getIdioma());
+			preparedStatement.setString(1, PaisrFormulario.getIdioma());
 			
 			
 			preparedStatement.executeUpdate();
@@ -164,13 +164,13 @@ public class Repository {
 		manager.close(conn);
 	}
 
-	public void Update(User userFormulario) {
+	public void Update(Pais PaiFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("UPDATE paises SET idioma=?  where pais=?");
-			preparedStatement.setString(1, userFormulario.getIdioma());
-			preparedStatement.setString(2, userFormulario.getPais());
+			preparedStatement.setString(1, PaiFormulario.getIdioma());
+			preparedStatement.setString(2, PaiFormulario.getPais());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -183,7 +183,7 @@ public class Repository {
 		manager.close(conn);
 	}
 	public static List SearchAll_Paises() {
-		List<User> listUsers= new ArrayList<User>();
+		List<Pais> listUsers= new ArrayList<Pais>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -191,7 +191,7 @@ public class Repository {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises");
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
-				User userInDatabase = new User();
+				Pais userInDatabase = new Pais();
 				userInDatabase.setPais(resultSet.getString(1));
 				userInDatabase.setIdioma(resultSet.getString(2));
 				
@@ -221,9 +221,9 @@ public class Repository {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Idiomas");
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
-				Idiomas userInDatabase = new Idiomas();
-				userInDatabase.setIdioma(resultSet.getString(1));
-				listUsers.add(userInDatabase);
+				Idiomas PaisInDatabase = new Idiomas();
+				PaisInDatabase.setIdioma(resultSet.getString(1));
+				listUsers.add(PaisInDatabase);
 			}
 			
 		} catch (SQLException e) {

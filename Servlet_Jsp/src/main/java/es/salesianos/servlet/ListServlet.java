@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Idiomas;
-import es.salesianos.model.User;
+import es.salesianos.model.Pais;
 import es.salesianos.repository.Repository;
 import es.salesianos.service.Service;
 
@@ -21,7 +21,7 @@ public class ListServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<User> listAllUsers = service.SearchAllPaises();
+		List<Pais> listAllUsers = service.SearchAllPaises();
 				
 		req.setAttribute("listAllUsers", listAllUsers);
 		redirect(req,resp);

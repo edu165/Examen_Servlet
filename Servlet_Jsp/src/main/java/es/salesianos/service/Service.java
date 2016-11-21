@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Idiomas;
-import es.salesianos.model.User;
+import es.salesianos.model.Pais;
 import es.salesianos.model.assembler.IdiomasAssembler;
-import es.salesianos.model.assembler.UserAssembler;
+import es.salesianos.model.assembler.PaisAssembler;
 import es.salesianos.repository.Repository;
 
 
@@ -22,8 +22,8 @@ public class Service {
 	
 	private ConnectionManager manager = new ConnectionH2();
 	
-	public User assembleUserFromRequest(HttpServletRequest req) {
-		return UserAssembler.assembleUserFrom(req);
+	public Pais assembleUserFromRequest(HttpServletRequest req) {
+		return PaisAssembler.assembleUserFrom(req);
 	}
 	public Idiomas assembleIdiomasrFromRequest(HttpServletRequest req) {
 		return IdiomasAssembler.assembleUserFrom(req);
@@ -42,11 +42,11 @@ public class Service {
 	
 
 
-	public void InsertOrUpdate(User userFormulario) {
+	public void InsertOrUpdate(Pais userFormulario) {
 		Repository repository = new Repository();
 		repository.CreateTableIdiomas();
 		
-		User userInDatabase = repository.search(userFormulario);
+		Pais userInDatabase = repository.search(userFormulario);
 	
 		
 		if(null == userInDatabase){

@@ -2,12 +2,12 @@ package es.salesianos.model.assembler;
 
 import javax.servlet.http.HttpServletRequest;
 
-import es.salesianos.model.User;
+import es.salesianos.model.Pais;
 
-public class UserAssembler {
+public class PaisAssembler {
 
-	public static User assembleUserFrom(HttpServletRequest req) {
-		User user = new User();
+	public static Pais assembleUserFrom(HttpServletRequest req) {
+		Pais user = new Pais();
 		String pais = req.getParameter("pais");
 		
 		String idioma = req.getParameter("idioma");

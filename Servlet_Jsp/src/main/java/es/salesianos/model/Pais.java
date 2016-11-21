@@ -1,14 +1,9 @@
 package es.salesianos.model;
 
-
-
-public class User {
+public class Pais {
 
 	private String pais;
 	private String idioma;
-	
-	
-	
 
 	public String getPais() {
 		return pais;
@@ -26,17 +21,9 @@ public class User {
 		this.idioma = idioma;
 	}
 
-	
-	
-
-	
-
-	
 	@Override
 	public String toString() {
-		return "User [pais=" + pais + ", idioma=" + idioma +  "]";
+		return "User [pais=" + pais + ", idioma=" + idioma + "]";
 	}
-	
-	
 
 }

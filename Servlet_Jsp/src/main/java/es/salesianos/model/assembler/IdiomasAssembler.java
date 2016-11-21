@@ -3,7 +3,7 @@ package es.salesianos.model.assembler;
 import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.model.Idiomas;
-import es.salesianos.model.User;
+import es.salesianos.model.Pais;
 
 public class IdiomasAssembler {
 

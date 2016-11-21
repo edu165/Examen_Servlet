@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Idiomas;
-import es.salesianos.model.User;
-import es.salesianos.model.assembler.UserAssembler;
+import es.salesianos.model.Pais;
+import es.salesianos.model.assembler.PaisAssembler;
 import es.salesianos.service.Service;
 
 import es.salesianos.repository.Repository;
@@ -26,7 +26,7 @@ public class InfoDataServlet extends HttpServlet{
 	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		User user = service.assembleUserFromRequest(req);
+		Pais user = service.assembleUserFromRequest(req);
 		Idiomas idiomas = service.assembleIdiomasrFromRequest(req);
 		service.CreateTable();
 	service.InsertOrUpdate(user);
