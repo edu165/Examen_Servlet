@@ -53,7 +53,7 @@
 		<tr>
 		<td><td>
 		<tr>
-		<td><input type="button" onclick="window.location.href='listado.jsp'"  value="Ver Listado"></td>
+		<td><input type="button" onclick="window.location.href='List.jsp'"  value="Ver Listado"></td>
 		</tr>
 	</table>
 </form>

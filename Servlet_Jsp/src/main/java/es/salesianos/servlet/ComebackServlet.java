@@ -22,15 +22,10 @@ import es.salesianos.service.Service;
 public class ComebackServlet extends HttpServlet{
 
 	private Service service = new Service();
-	
-	
-	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-		String idioma = req.getParameter("idioma");
-		req.setAttribute("idioma", idioma);
+    String idioma = req.getParameter("idiomaborrar");
+		req.setAttribute("idiomaborrar", idioma);
 		service.Delete(idioma);
 		
 		redirect(req,resp);

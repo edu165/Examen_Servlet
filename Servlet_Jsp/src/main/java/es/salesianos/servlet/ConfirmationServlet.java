@@ -28,8 +28,8 @@ public class ConfirmationServlet extends HttpServlet{
 	
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			String idioma = req.getParameter("user");
-			//System.out.println(user);
+			String idioma = req.getParameter("userborrar");
+			
 			req.setAttribute("id",idioma);
 
 			req.getRequestDispatcher("Warning.jsp").forward(req, resp);

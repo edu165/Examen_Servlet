@@ -27,8 +27,8 @@
 	<input type="submit" value="verlistado">
 </form>
 </td>
-	<td><input type="button" onclick="window.location.href='datos.jsp'"  value="Volver"></td>
-	<td><input type="button" onclick="window.location.href='listado.jsp'"  value="Ver Listado"></td>
+	<td><input type="button" onclick="window.location.href='Date.jsp'"  value="Volver"></td>
+	<td><input type="button" onclick="window.location.href='List.jsp'"  value="Ver Listado"></td>
 	</tr>
 	</table>
 	</div>
@@ -58,7 +58,7 @@
 				<td><c:out value="${user.idioma}"/> </td>
 				<td>
 		
-	<td><a name="user" href="Delete_Warning?user=${user.idioma}">Borrar Idioma</a></td>
+	<td><a name="userborrar" href="Delete_Warning?userborrar=${user.idioma}">Borrar Idioma</a></td>
 	
 		
 	</form>	</td>

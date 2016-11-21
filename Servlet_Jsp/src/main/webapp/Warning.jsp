@@ -9,8 +9,8 @@
 </head>
 <body>
 <center><h1>EL REGISTRO VA HA SER ELIMINADO</h1>
-<form method="post" action="borrar">
-		<input type="hidden" value="${id}" name="user">
+<form method="post" action="borrartodo">
+		<input type="hidden" value="${id}" name="idiomaborrar">
 		<br>
 		<input type="submit"  value="SI, estoy seguro">
 		<input type="button" onclick="window.location.href='List.jsp'"  value="NO, quiero eliminarlo">
