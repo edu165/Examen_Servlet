@@ -19,28 +19,23 @@ import es.salesianos.repository.Repository;
 import es.salesianos.service.Service;
 
 
-public class ComebackServlet extends HttpServlet{
+public class ConfirmationServlet extends HttpServlet{
 
 	private Service service = new Service();
 	
 	
 	
-	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
-		String idioma = req.getParameter("idioma");
-		req.setAttribute("idioma", idioma);
-		service.Delete(idioma);
-		
-		redirect(req,resp);
 	
-	}
+		@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+			String idioma = req.getParameter("user");
+			//System.out.println(user);
+			req.setAttribute("id",idioma);
+
+			req.getRequestDispatcher("Warning.jsp").forward(req, resp);
+			
+		}
 	
 
-	private void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/List.jsp");
-		dispatcher.forward(req,resp);
-	}
 	
 }

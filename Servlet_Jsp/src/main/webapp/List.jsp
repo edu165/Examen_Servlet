@@ -10,16 +10,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript" language="javascript">
-function BorrarCliente()
-{
-var resul = confirm('¿Desea borrar el pais seleccionado?');
-if (resul = true)
-{
-document.edu.submit();
-}
-}
-</script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous">
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -66,10 +57,10 @@ document.edu.submit();
 				<td><c:out value="${user.pais}"/> </td>
 				<td><c:out value="${user.idioma}"/> </td>
 				<td>
-		<form method="post" action="borrar"  onclick="BorrarCliente() "name="edu">
-	<input type="hidden"  value="${user.idioma}" name="idioma">
+		
+	<td><a name="user" href="Delete_Warning?user=${user.idioma}">Borrar Idioma</a></td>
 	
-		<input type="submit"  value="Borrar Completo">
+		
 	</form>	</td>
 		
 	</form>	

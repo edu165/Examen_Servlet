@@ -29,16 +29,13 @@ public class InfoDataServlet extends HttpServlet{
 		Pais user = service.assembleUserFromRequest(req);
 		Idiomas idiomas = service.assembleIdiomasrFromRequest(req);
 		service.CreateTable();
-	service.InsertOrUpdate(user);
+	    service.InsertOrUpdate(user);
 		service.InsertIdiomas(idiomas);
-
-		
-		
-		redirect(req,resp);
+        redirect(req,resp);
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/List.jsp");
 		dispatcher.forward(req,resp);
 	}
 

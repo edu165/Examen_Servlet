@@ -29,7 +29,7 @@ public class ListServlet extends HttpServlet {
 	
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listado.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/List.jsp");
 		dispatcher.forward(req,resp);
 	}
 }
