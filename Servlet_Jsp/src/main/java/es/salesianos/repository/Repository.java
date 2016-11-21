@@ -37,21 +37,17 @@ public class Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (statement != null) {
+			if (statement != null && connection != null) {
 				try {
 					statement.close();
+					connection.close();
+					
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
 
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			
 		}
 	}
 	public void createTablePaises() {
@@ -67,21 +63,16 @@ public class Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (statement != null) {
+			if (statement != null && connection != null) {
 				try {
 					statement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (connection != null) {
-				try {
 					connection.close();
+					
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
+			
 		}
 	}
 
@@ -295,22 +286,17 @@ public class Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (preparedStatement != null) {
+			if (preparedStatement != null && conn != null ) {
 				try {
 					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (conn != null) {
-				try {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
-		}
+			
 	}
 
 
+}
 }
