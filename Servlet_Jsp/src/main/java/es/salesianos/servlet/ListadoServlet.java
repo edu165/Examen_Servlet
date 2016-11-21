@@ -17,7 +17,7 @@ import es.salesianos.service.Service;
 public class ListadoServlet extends HttpServlet {
 	
 	private Service service = new  Service();
-	private Repository repositorio= new Repository();
+	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
