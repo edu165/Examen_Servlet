@@ -29,26 +29,26 @@ public class Service {
 		return IdiomasAssembler.assembleUserFrom(req);
 	}
 	public void CreateTable(){
-		repository.createTableIdiomas();
-		repository.createTablePaises();
+		repository.CreateTableIdiomas();
+		repository.CreateTablePaises();
 		
 	}
 	public void InsertIdiomas(Idiomas idiomas){
-		repository.insert(idiomas);
+		repository.InsertIdiomas(idiomas);
 	}
 
 
-	public void insertOrUpdate(User userFormulario) {
+	public void InsertOrUpdate(User userFormulario) {
 		Repository repository = new Repository();
-		repository.createTableIdiomas();
+		repository.CreateTableIdiomas();
 		
 		User userInDatabase = repository.search(userFormulario);
 	
 		
 		if(null == userInDatabase){
-			repository.insert(userFormulario);
+			repository.InserPaises(userFormulario);
 		}else{
-			repository.update(userFormulario);
+			repository.Update(userFormulario);
 		}
 	}
 	
@@ -63,10 +63,10 @@ public class Service {
 	public void setManager(ConnectionManager manager) {
 		this.manager = manager;
 	}
-	public void delete(String user){
+	public void Delete(String user){
 		Repository repository = new Repository();
-		repository.deletePais(user);
-		repository.deleteIdiomas(user);
+		repository.DeletePais(user);
+		repository.DeleteIdiomas(user);
 	
 	}
 	

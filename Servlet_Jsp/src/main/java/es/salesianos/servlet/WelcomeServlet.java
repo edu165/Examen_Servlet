@@ -29,7 +29,7 @@ public class WelcomeServlet extends HttpServlet{
 		User user = service.assembleUserFromRequest(req);
 		Idiomas idiomas = service.assembleIdiomasrFromRequest(req);
 		service.CreateTable();
-	service.insertOrUpdate(user);
+	service.InsertOrUpdate(user);
 		service.InsertIdiomas(idiomas);
 
 		

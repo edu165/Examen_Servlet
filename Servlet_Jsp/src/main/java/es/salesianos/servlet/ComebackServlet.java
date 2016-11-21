@@ -31,7 +31,7 @@ public class ComebackServlet extends HttpServlet{
 
 		String idioma = req.getParameter("idioma");
 		req.setAttribute("idioma", idioma);
-		service.delete(idioma);
+		service.Delete(idioma);
 		
 		redirect(req,resp);
 	

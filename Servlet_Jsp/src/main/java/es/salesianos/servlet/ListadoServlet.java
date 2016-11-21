@@ -21,7 +21,7 @@ public class ListadoServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<User> listAllUsers = repositorio.searchAll();
+		List<User> listAllUsers = repositorio.SearchAll();
 				
 		req.setAttribute("listAllUsers", listAllUsers);
 		redirect(req,resp);
