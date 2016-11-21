@@ -19,7 +19,7 @@ import es.salesianos.service.Service;
 import es.salesianos.repository.Repository;
 
 
-public class WelcomeServlet extends HttpServlet{
+public class InfoDataServlet extends HttpServlet{
 	
 	private Service service = new Service();
 

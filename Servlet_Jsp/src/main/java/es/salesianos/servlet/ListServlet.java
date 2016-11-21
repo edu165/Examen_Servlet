@@ -14,7 +14,7 @@ import es.salesianos.model.User;
 import es.salesianos.repository.Repository;
 import es.salesianos.service.Service;
 
-public class ListadoServlet extends HttpServlet {
+public class ListServlet extends HttpServlet {
 	
 	private Service service = new  Service();
 	
