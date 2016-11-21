@@ -1,5 +1,7 @@
+<%@page import="es.salesianos.repository.Repository"%>
 <%@page import="es.salesianos.model.Idiomas"%>
-<%@page import="es.salesianos.model.User"%>
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -34,7 +36,7 @@
 			<td>
 				<select name="idioma" id="idioma">
 					<%  List<Idiomas> listAllIdiomas = new ArrayList<Idiomas>();
-						listAllIdiomas = es.salesianos.repository.Repository.SearchAll_Idiomas(); 
+						listAllIdiomas = Repository.SearchAll_Idiomas(); 
 						for (int i=0;i<listAllIdiomas.size();i++){
 						   out.println("<option value ='"+listAllIdiomas.get(i).getIdioma()+"'>"+listAllIdiomas.get(i).getIdioma()+"</option>");
 						}
