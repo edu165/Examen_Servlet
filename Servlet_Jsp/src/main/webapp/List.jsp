@@ -23,13 +23,14 @@
   }
    .botonmin{
     text-decoration: none;
-    padding: 5px;
-    font-weight: 300;
-    font-size: 10px;
+    padding: 6px;
+    font-weight: 200;
+    font-size: 15px;
     color:white;
     background-color: gray;
-    border-radius: 6px;
+    border-radius: 4px;
     border: 2px solid medium;
+    align:center;
   }
 </style>
 
@@ -42,7 +43,7 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-4 col-sm-6 offset-xl-6 -col-md-2" >
-<table>
+<table width="40%" align="center">
 <tr>
 <td>
 <form action="verlistado" method="post">
@@ -65,11 +66,12 @@
 <br/>
 <br/>
 <div class="col-lg-4 col-sm-6 offset-xl-6 -col-md-2" >
-<table border="1">
+<table border="3" width="30%" align="center">
 	<thead>
 		<tr>
-			<td>pais</td>
-			<td>idioma</td>
+			<td>Pais</td>
+			<td>Idioma</td>
+			<td>Borrar</td>
 			
 		</tr>
 	</thead>
@@ -78,9 +80,9 @@
 			<tr>
 				<td><c:out value="${user.pais}"/> </td>
 				<td><c:out value="${user.idioma}"/> </td>
-				<td>
+				
 		
-	<td><a  class="botonmin" name="userborrar" href="Delete_Warning?userborrar=${user.idioma}">Borrar </a></td>
+	<td><a   class="botonmin" name="userborrar" href="Delete_Warning?userborrar=${user.idioma}">Borrar Idiomas </a></td>
 	
 		
 	</form>	</td>
