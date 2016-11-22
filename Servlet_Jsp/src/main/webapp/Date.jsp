@@ -14,6 +14,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+  .boton{
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 15px;
+    color:white;
+    background-color: gray;
+    border-radius: 6px;
+    border: 2px solid medium;
+  }
+</style>
 </head>
 
 <body>
@@ -48,12 +60,12 @@
 			
 			
 		<tr>
-			<td colspan="2" align="right"><input type="submit" value="Enviar"></td>
+			<td colspan="2" align="right"><input class="boton" type="submit" value="Enviar"></td>
 		</tr>
 		<tr>
 		<td><td>
 		<tr>
-		<td><input type="button" onclick="window.location.href='List.jsp'"  value="Ver Listado"></td>
+		<td><a class="boton" href="List.jsp" >Ver listado</a></td>
 		</tr>
 	</table>
 </form>

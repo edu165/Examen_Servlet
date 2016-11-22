@@ -10,6 +10,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style type="text/css">
+  .boton{
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 15px;
+    color:white;
+    background-color: gray;
+    border-radius: 6px;
+    border: 2px solid medium;
+  }
+   .botonmin{
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 300;
+    font-size: 10px;
+    color:white;
+    background-color: gray;
+    border-radius: 6px;
+    border: 2px solid medium;
+  }
+</style>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous">
 </script>
@@ -24,11 +46,11 @@
 <tr>
 <td>
 <form action="verlistado" method="post">
-	<input type="submit" value="verlistado">
+	<input class="boton" type="submit" value="verlistado">
 </form>
 </td>
-	<td><input type="button" onclick="window.location.href='Date.jsp'"  value="Volver"></td>
-	<td><input type="button" onclick="window.location.href='List.jsp'"  value="Ver Listado"></td>
+	<td><a class="boton"  href="Date.jsp"  >Volver</a></td>
+	<td><a class="boton"  href="List.jsp"  >Listado</a></td>
 	</tr>
 	</table>
 	</div>
@@ -58,7 +80,7 @@
 				<td><c:out value="${user.idioma}"/> </td>
 				<td>
 		
-	<td><a name="userborrar" href="Delete_Warning?userborrar=${user.idioma}">Borrar Idioma</a></td>
+	<td><a  class="botonmin" name="userborrar" href="Delete_Warning?userborrar=${user.idioma}">Borrar </a></td>
 	
 		
 	</form>	</td>
