@@ -43,7 +43,7 @@ public class Service {
 
 
 	public void insertOrUpdate(Pais userFormulario) {
-		Repository repository = new Repository();
+	
 		repository.createTableIdiomas();
 		
 		Pais userInDatabase = repository.search(userFormulario);
@@ -68,7 +68,7 @@ public class Service {
 		this.manager = manager;
 	}
 	public void Delete(String user){
-		Repository repository = new Repository();
+	
 		repository.deletePais(user);
 		repository.deleteIdiomas(user);
 	
