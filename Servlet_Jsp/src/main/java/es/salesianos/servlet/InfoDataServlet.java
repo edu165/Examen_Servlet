@@ -28,8 +28,8 @@ public class InfoDataServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Pais user = service.assembleUserFromRequest(req);
 		Idiomas idiomas = service.assembleIdiomasrFromRequest(req);
-		service.CreateTable();
-	    service.InsertOrUpdate(user);
+		service.CreateTable();;
+	    service.insertOrUpdate(user);
 		service.InsertIdiomas(idiomas);
         redirect(req,resp);
 	}

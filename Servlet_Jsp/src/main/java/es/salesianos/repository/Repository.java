@@ -24,7 +24,8 @@ public class Repository {
 		Connection connection = null;
 		Statement statement = null;
 		
-	public void Create_Table_Idiomas() {
+	public void createTableIdiomas() {
+		
 		
 		Connection connection = null;
 		Statement statement = null;
@@ -51,7 +52,7 @@ public class Repository {
 			
 		}
 	}
-	public void CreateTablePaises() {
+	public void createTablePaises() {
 		Connection connection = null;
 		Statement statement = null;
 		
@@ -97,15 +98,15 @@ public class Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			CloseResulset(resultSet);
-			ClosePreparedStatement(prepareStatement);
+			closeResulset(resultSet);
+			closePreparedStatement(prepareStatement);
 			
 		}
 		manager.close(conn);
 		return PaisInDatabase;
 	}
 
-	private static void ClosePreparedStatement(PreparedStatement prepareStatement) {
+	private static void closePreparedStatement(PreparedStatement prepareStatement) {
 		try {
 			prepareStatement.close();
 		} catch (SQLException e) {
@@ -114,7 +115,7 @@ public class Repository {
 		}
 	}
 
-	private static void CloseResulset(ResultSet resultSet) {
+	private static void closeResulset(ResultSet resultSet) {
 		try {
 			resultSet.close();
 		} catch (SQLException e) {
@@ -123,7 +124,7 @@ public class Repository {
 		}
 	}
 
-	public void InserPaises(Pais PaisFormulario) {
+	public void insertPaises(Pais PaisFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -137,13 +138,13 @@ public class Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			ClosePreparedStatement(preparedStatement);
+			closePreparedStatement(preparedStatement);
 		}
 		
 		
 		manager.close(conn);
 	}
-	public void InsertIdiomas(Idiomas PaisrFormulario) {
+	public void insertIdiomas(Idiomas PaisrFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -157,14 +158,14 @@ public class Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			ClosePreparedStatement(preparedStatement);
+			closePreparedStatement(preparedStatement);
 		}
 		
 		
 		manager.close(conn);
 	}
 
-	public void Update(Pais PaiFormulario) {
+	public void update(Pais PaiFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -176,13 +177,13 @@ public class Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			ClosePreparedStatement(preparedStatement);
+			closePreparedStatement(preparedStatement);
 		}
 		
 		
 		manager.close(conn);
 	}
-	public static List SearchAll_Paises() {
+	public static List searchAllPaises() {
 		List<Pais> listUsers= new ArrayList<Pais>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -203,8 +204,8 @@ public class Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			CloseResulset(resultSet);
-			ClosePreparedStatement(prepareStatement);
+			closeResulset(resultSet);
+			closePreparedStatement(prepareStatement);
 		}
 		
 		
@@ -212,7 +213,7 @@ public class Repository {
 		return listUsers;
 	}
 
-	public static List<Idiomas> SearchAll_Idiomas() {
+	public static List<Idiomas> searchAll_Idiomas() {
 		List<Idiomas> listUsers= new ArrayList<Idiomas>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -230,8 +231,8 @@ public class Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			CloseResulset(resultSet);
-			ClosePreparedStatement(prepareStatement);
+			closeResulset(resultSet);
+			closePreparedStatement(prepareStatement);
 		}
 		
 		
@@ -240,7 +241,7 @@ public class Repository {
 	}
 	
 	
-	public void DeletePais(String idioma) {
+	public void deletePais(String idioma) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
@@ -267,7 +268,7 @@ public class Repository {
 			
 		}
 	}
-	public void DeleteIdiomas(String idioma) {
+	public void deleteIdiomas(String idioma) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 

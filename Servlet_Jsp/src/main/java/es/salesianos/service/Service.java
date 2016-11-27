@@ -29,30 +29,30 @@ public class Service {
 		return IdiomasAssembler.assembleUserFrom(req);
 	}
 	public void CreateTable(){
-		repository.Create_Table_Idiomas();
-		repository.CreateTablePaises();
+		repository.createTableIdiomas();;
+		repository.createTablePaises();
 		
 	}
 	public void InsertIdiomas(Idiomas idiomas){
-		repository.InsertIdiomas(idiomas);
+		repository.insertIdiomas(idiomas);
 	}
 	public List SearchAllPaises(){
-		return repository.SearchAll_Paises();
+		return repository.searchAllPaises();
 	}
 	
 
 
-	public void InsertOrUpdate(Pais userFormulario) {
+	public void insertOrUpdate(Pais userFormulario) {
 		Repository repository = new Repository();
-		repository.Create_Table_Idiomas();
+		repository.createTableIdiomas();
 		
 		Pais userInDatabase = repository.search(userFormulario);
 	
 		
 		if(null == userInDatabase){
-			repository.InserPaises(userFormulario);
+			repository.insertPaises(userFormulario);
 		}else{
-			repository.Update(userFormulario);
+			repository.update(userFormulario);
 		}
 	}
 	
@@ -69,8 +69,8 @@ public class Service {
 	}
 	public void Delete(String user){
 		Repository repository = new Repository();
-		repository.DeletePais(user);
-		repository.DeleteIdiomas(user);
+		repository.deletePais(user);
+		repository.deleteIdiomas(user);
 	
 	}
 	
