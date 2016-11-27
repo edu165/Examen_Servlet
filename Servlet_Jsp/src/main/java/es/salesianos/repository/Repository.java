@@ -106,7 +106,7 @@ public class Repository {
 		return PaisInDatabase;
 	}
 
-	private static void closePreparedStatement(PreparedStatement prepareStatement) {
+private static void closePreparedStatement(PreparedStatement prepareStatement) {
 		try {
 			prepareStatement.close();
 		} catch (SQLException e) {
@@ -115,7 +115,7 @@ public class Repository {
 		}
 	}
 
-	private static void closeResulset(ResultSet resultSet) {
+public static  void closeResulset(ResultSet resultSet) {
 		try {
 			resultSet.close();
 		} catch (SQLException e) {
@@ -183,7 +183,7 @@ public class Repository {
 		
 		manager.close(conn);
 	}
-	public static List searchAllPaises() {
+	public  List searchAllPaises() {
 		List<Pais> listUsers= new ArrayList<Pais>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -231,6 +231,7 @@ public class Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
+			
 			closeResulset(resultSet);
 			closePreparedStatement(prepareStatement);
 		}
