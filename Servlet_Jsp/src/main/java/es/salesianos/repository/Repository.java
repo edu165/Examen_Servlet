@@ -23,6 +23,33 @@ public class Repository {
 	
 		Connection connection = null;
 		Statement statement = null;
+public static  void closeResulset(ResultSet resultSet) {
+			try {
+				resultSet.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+private static void closeStatement(Statement statement) {
+			try {
+				statement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+
+private static void closePreparedStatement(PreparedStatement prepareStatement) {
+	try {
+		prepareStatement.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+		throw new RuntimeException(e);
+	}
+}
+
+		
 		
 	public void createTableIdiomas() {
 		
@@ -38,21 +65,14 @@ public class Repository {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			if (statement != null && connection != null) {
-				try {
-					statement.close();
-					connection.close();
-					
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
+		} finally  {
+			 closeStatement(statement);
+			manager.close(connection);
 			
 		}
-	}
-	public void createTablePaises() {
+		}
+	
+		public void createTablePaises() {
 		Connection connection = null;
 		Statement statement = null;
 		
@@ -66,15 +86,8 @@ public class Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (statement != null && connection != null) {
-				try {
-					statement.close();
-					connection.close();
-					
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			 closeStatement(statement);
+			manager.close(connection);
 			
 		}
 	}
@@ -106,23 +119,7 @@ public class Repository {
 		return PaisInDatabase;
 	}
 
-private static void closePreparedStatement(PreparedStatement prepareStatement) {
-		try {
-			prepareStatement.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-	}
 
-public static  void closeResulset(ResultSet resultSet) {
-		try {
-			resultSet.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-	}
 
 	public void insertPaises(Pais PaisFormulario) {
 		Connection conn = manager.open(jdbcUrl);
@@ -284,17 +281,11 @@ public static  void closeResulset(ResultSet resultSet) {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			if (preparedStatement != null && conn != null ) {
-				try {
-					preparedStatement.close();
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+		}finally {
+			 closeStatement(statement);
+			manager.close(connection);
 			
-	}
+		}
 
 
 }
