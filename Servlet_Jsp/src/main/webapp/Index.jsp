@@ -48,7 +48,7 @@
 			<td>
 				<select name="idioma" id="idioma">
 					<%  List<Idiomas> listAllIdiomas = new ArrayList<Idiomas>();
-						listAllIdiomas = Repository.SearchAll_Idiomas(); 
+						listAllIdiomas = Repository.searchAllIdiomas(); 
 						for (int i=0;i<listAllIdiomas.size();i++){
 						   out.println("<option value ='"+listAllIdiomas.get(i).getIdioma()+"'>"+listAllIdiomas.get(i).getIdioma()+"</option>");
 						}

@@ -50,7 +50,7 @@
 	<input class="boton" type="submit" value="verlistado">
 </form>
 </td>
-	<td><a class="boton"  href="Date.jsp"  >Volver</a></td>
+	<td><a class="boton"  href="Index.jsp"  >Volver</a></td>
 	<td><a class="boton"  href="List.jsp"  >Listado</a></td>
 	</tr>
 	</table>

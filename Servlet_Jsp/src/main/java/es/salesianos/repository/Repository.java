@@ -213,7 +213,7 @@ public class Repository {
 		return listUsers;
 	}
 
-	public static List<Idiomas> searchAll_Idiomas() {
+	public static List<Idiomas> searchAllIdiomas() {
 		List<Idiomas> listUsers= new ArrayList<Idiomas>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
