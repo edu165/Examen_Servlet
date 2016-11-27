@@ -282,8 +282,8 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			 closeStatement(statement);
-			manager.close(connection);
+			closePreparedStatement(preparedStatement);
+			manager.close(conn);
 			
 		}
 
