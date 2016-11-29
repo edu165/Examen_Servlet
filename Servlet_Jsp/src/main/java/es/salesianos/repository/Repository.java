@@ -7,21 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Idiomas;
 import es.salesianos.model.Pais;
 
-
-
-
 public class Repository {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test2";
 	static ConnectionManager manager = new ConnectionH2();
-	
-		Connection connection = null;
+	Connection connection = null;
 		Statement statement = null;
 public static  void closeresultset(ResultSet resultSet) {
 			try {
@@ -48,12 +43,7 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 		throw new RuntimeException(e);
 	}
 }
-
-		
-		
-	public void createrableidiomas() {
-		
-		
+public void createrableidiomas() {
 		Connection connection = null;
 		Statement statement = null;
 
@@ -62,8 +52,7 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 			statement = connection.createStatement();
 			statement.execute("create table IF NOT EXISTS Idiomas(idioma varchar(25) PRIMARY KEY);");
 			statement.execute("create table IF NOT EXISTS Paises(pais varchar(25) PRIMARY KEY,idioma varchar(25));");
-
-		} catch (Exception e) {
+			} catch (Exception e) {
 			e.printStackTrace();
 		} finally  {
 			 closestatement(statement);
@@ -75,8 +64,6 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 		public void createtablepaises() {
 		Connection connection = null;
 		Statement statement = null;
-		
-
 		try {
 			connection = manager.open(jdbcUrl);
 			statement = connection.createStatement();
@@ -88,8 +75,7 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 		} finally {
 			 closestatement(statement);
 			manager.close(connection);
-			
-		}
+			}
 	}
 
 	public Pais search(Pais PaisFormulario) {
@@ -105,8 +91,7 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 				PaisInDatabase = new Pais();
 				PaisInDatabase.setPais(resultSet.getString(1));
 				PaisInDatabase.setIdioma(resultSet.getString(2));
-			
-			}
+				}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -129,7 +114,6 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 					"VALUES (?, ?)");
 			preparedStatement.setString(1, PaisFormulario.getPais());
 			preparedStatement.setString(2, PaisFormulario.getIdioma());
-			
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -137,8 +121,6 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 		}finally {
 			closepreparedstatement(preparedStatement);
 		}
-		
-		
 		manager.close(conn);
 	}
 	public void insertidiomas(Idiomas PaisrFormulario) {
@@ -147,10 +129,8 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 		try {
 			preparedStatement = conn.prepareStatement("INSERT INTO idiomas (idioma)" +
 					"VALUES (?)");
-			preparedStatement.setString(1, PaisrFormulario.getIdioma());
-			
-			
-			preparedStatement.executeUpdate();
+		preparedStatement.setString(1, PaisrFormulario.getIdioma());
+		preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -192,8 +172,6 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 				Pais userInDatabase = new Pais();
 				userInDatabase.setPais(resultSet.getString(1));
 				userInDatabase.setIdioma(resultSet.getString(2));
-				
-				
 				listUsers.add(userInDatabase);
 			}
 			
@@ -204,8 +182,6 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 			closeresultset(resultSet);
 			closepreparedstatement(prepareStatement);
 		}
-		
-		
 		manager.close(conn);
 		return listUsers;
 	}
@@ -223,8 +199,7 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 				PaisInDatabase.setIdioma(resultSet.getString(1));
 				listUsers.add(PaisInDatabase);
 			}
-			
-		} catch (SQLException e) {
+			} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
@@ -233,11 +208,9 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 			closepreparedstatement(prepareStatement);
 		}
 		
-		
 		manager.close(conn);
 		return listUsers;
 	}
-	
 	
 	public void deletepais(String idioma) {
 		Connection conn = manager.open(jdbcUrl);
@@ -246,12 +219,7 @@ private static void closepreparedstatement(PreparedStatement prepareStatement) {
 		try {
 		    preparedStatement = conn.prepareStatement("DELETE from Paises where idioma=? ");
 			preparedStatement.setString(1, idioma);
-			
-		preparedStatement.executeUpdate();
-			
-
-		
-
+			preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

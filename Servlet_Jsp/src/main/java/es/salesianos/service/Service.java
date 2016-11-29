@@ -13,13 +13,8 @@ import es.salesianos.model.Pais;
 import es.salesianos.model.assembler.IdiomasAssembler;
 import es.salesianos.model.assembler.PaisAssembler;
 import es.salesianos.repository.Repository;
-
-
 public class Service {
-	
-	
 	private Repository repository = new Repository();
-	
 	private ConnectionManager manager = new ConnectionH2();
 	
 	public Pais assembleUserFromRequest(HttpServletRequest req) {
@@ -39,9 +34,6 @@ public class Service {
 	public List SearchAllPaises(){
 		return repository.searchallpaises();
 	}
-	
-
-
 	public void insertOrUpdate(Pais userFormulario) {
 	
 		repository.createrableidiomas();
@@ -55,12 +47,6 @@ public class Service {
 			repository.update(userFormulario);
 		}
 	}
-	
-
-	
-	
-	
-	
 	public ConnectionManager getManager() {
 		return manager;
 	}
@@ -74,7 +60,5 @@ public class Service {
 	
 	}
 	
-	
-	
-}
+	}
 

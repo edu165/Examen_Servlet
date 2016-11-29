@@ -22,20 +22,10 @@ import es.salesianos.service.Service;
 public class ConfirmationServlet extends HttpServlet{
 
 	private Service service = new Service();
-	
-	
-	
-	
-		@Override
+	@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 			String idioma = req.getParameter("userborrar");
-			
-			req.setAttribute("id",idioma);
-
-			req.getRequestDispatcher("Warning.jsp").forward(req, resp);
-			
-		}
-	
-
-	
-}
+		    req.setAttribute("id",idioma);
+		 req.getRequestDispatcher("Warning.jsp").forward(req, resp);
+			}
+	}
