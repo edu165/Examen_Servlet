@@ -29,28 +29,28 @@ public class Service {
 		return IdiomasAssembler.assembleUserFrom(req);
 	}
 	public void CreateTable(){
-		repository.createTableIdiomas();;
-		repository.createTablePaises();
+		repository.createrableidiomas();;
+		repository.createtablepaises();
 		
 	}
 	public void InsertIdiomas(Idiomas idiomas){
-		repository.insertIdiomas(idiomas);
+		repository.insertidiomas(idiomas);
 	}
 	public List SearchAllPaises(){
-		return repository.searchAllPaises();
+		return repository.searchallpaises();
 	}
 	
 
 
 	public void insertOrUpdate(Pais userFormulario) {
 	
-		repository.createTableIdiomas();
+		repository.createrableidiomas();
 		
 		Pais userInDatabase = repository.search(userFormulario);
 	
 		
 		if(null == userInDatabase){
-			repository.insertPaises(userFormulario);
+			repository.insertpaises(userFormulario);
 		}else{
 			repository.update(userFormulario);
 		}
@@ -69,8 +69,8 @@ public class Service {
 	}
 	public void Delete(String user){
 	
-		repository.deletePais(user);
-		repository.deleteIdiomas(user);
+		repository.deletepais(user);
+		repository.deleteidiomas(user);
 	
 	}
 	

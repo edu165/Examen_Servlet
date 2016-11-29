@@ -23,7 +23,7 @@ public class Repository {
 	
 		Connection connection = null;
 		Statement statement = null;
-public static  void closeResulset(ResultSet resultSet) {
+public static  void closeresultset(ResultSet resultSet) {
 			try {
 				resultSet.close();
 			} catch (SQLException e) {
@@ -31,7 +31,7 @@ public static  void closeResulset(ResultSet resultSet) {
 				throw new RuntimeException(e);
 			}
 		}
-private static void closeStatement(Statement statement) {
+private static void closestatement(Statement statement) {
 			try {
 				statement.close();
 			} catch (SQLException e) {
@@ -40,7 +40,7 @@ private static void closeStatement(Statement statement) {
 			}
 		}
 
-private static void closePreparedStatement(PreparedStatement prepareStatement) {
+private static void closepreparedstatement(PreparedStatement prepareStatement) {
 	try {
 		prepareStatement.close();
 	} catch (SQLException e) {
@@ -51,7 +51,7 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 
 		
 		
-	public void createTableIdiomas() {
+	public void createrableidiomas() {
 		
 		
 		Connection connection = null;
@@ -66,13 +66,13 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally  {
-			 closeStatement(statement);
+			 closestatement(statement);
 			manager.close(connection);
 			
 		}
 		}
 	
-		public void createTablePaises() {
+		public void createtablepaises() {
 		Connection connection = null;
 		Statement statement = null;
 		
@@ -86,7 +86,7 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			 closeStatement(statement);
+			 closestatement(statement);
 			manager.close(connection);
 			
 		}
@@ -111,8 +111,8 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closeResulset(resultSet);
-			closePreparedStatement(prepareStatement);
+			closeresultset(resultSet);
+			closepreparedstatement(prepareStatement);
 			
 		}
 		manager.close(conn);
@@ -121,7 +121,7 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 
 
 
-	public void insertPaises(Pais PaisFormulario) {
+	public void insertpaises(Pais PaisFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -135,13 +135,13 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closePreparedStatement(preparedStatement);
+			closepreparedstatement(preparedStatement);
 		}
 		
 		
 		manager.close(conn);
 	}
-	public void insertIdiomas(Idiomas PaisrFormulario) {
+	public void insertidiomas(Idiomas PaisrFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -155,7 +155,7 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closePreparedStatement(preparedStatement);
+			closepreparedstatement(preparedStatement);
 		}
 		
 		
@@ -174,13 +174,13 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closePreparedStatement(preparedStatement);
+			closepreparedstatement(preparedStatement);
 		}
 		
 		
 		manager.close(conn);
 	}
-	public  List searchAllPaises() {
+	public  List searchallpaises() {
 		List<Pais> listUsers= new ArrayList<Pais>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -201,8 +201,8 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closeResulset(resultSet);
-			closePreparedStatement(prepareStatement);
+			closeresultset(resultSet);
+			closepreparedstatement(prepareStatement);
 		}
 		
 		
@@ -229,8 +229,8 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 			throw new RuntimeException(e);
 		}finally {
 			
-			closeResulset(resultSet);
-			closePreparedStatement(prepareStatement);
+			closeresultset(resultSet);
+			closepreparedstatement(prepareStatement);
 		}
 		
 		
@@ -239,7 +239,7 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 	}
 	
 	
-	public void deletePais(String idioma) {
+	public void deletepais(String idioma) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
@@ -266,7 +266,7 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 			
 		}
 	}
-	public void deleteIdiomas(String idioma) {
+	public void deleteidiomas(String idioma) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
@@ -282,7 +282,7 @@ private static void closePreparedStatement(PreparedStatement prepareStatement) {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			closePreparedStatement(preparedStatement);
+			closepreparedstatement(preparedStatement);
 			manager.close(conn);
 			
 		}
