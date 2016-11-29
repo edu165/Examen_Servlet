@@ -12,20 +12,10 @@
 <html>
 
 <head>
+<link rel="stylesheet" type="text/css" href="./estilos/estilos.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-  .boton{
-    text-decoration: none;
-    padding: 5px;
-    font-weight: 400;
-    font-size: 15px;
-    color:white;
-    background-color: gray;
-    border-radius: 6px;
-    border: 2px solid medium;
-  }
-</style>
+
 </head>
 
 <body>
