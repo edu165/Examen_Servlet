@@ -46,7 +46,7 @@
 <table width="40%" align="center">
 <tr>
 <td>
-<form action="verlistado" method="post">
+<form action="list" method="post">
 	<input class="boton" type="submit" value="verlistado">
 </form>
 </td>
@@ -76,13 +76,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach var="user" items="${listAllUsers}">
+		<c:forEach var="country" items="${listAllUsers}">
 			<tr>
-				<td><c:out value="${user.pais}"/> </td>
-				<td><c:out value="${user.idioma}"/> </td>
+				<td><c:out value="${country.pais}"/> </td>
+				<td><c:out value="${country.idioma}"/> </td>
 				
 		
-	<td><a   class="botonmin" name="userborrar" href="Delete_Warning?userborrar=${user.idioma}">Borrar Idiomas </a></td>
+	<td><a   class="botonmin" name="userborrar" href="Delete_Warning?userborrar=${country.idioma}">Borrar Idiomas </a></td>
 	
 		
 	</form>	</td>
