@@ -35,14 +35,7 @@ private  void closestatement(Statement statement) {
 			}
 		}
 
-private  void closepreparedstatement(PreparedStatement prepareStatement) {
-	try {
-		prepareStatement.close();
-	} catch (SQLException e) {
-		e.printStackTrace();
-		throw new RuntimeException(e);
-	}
-}
+
 public void createrableidiomas() {
 		Connection connection = null;
 		Statement statement = null;
@@ -97,7 +90,7 @@ public void createrableidiomas() {
 			throw new RuntimeException(e);
 		}finally {
 			closeresultset(resultSet);
-			closepreparedstatement(prepareStatement);
+			closestatement(prepareStatement);
 			
 		}
 		manager.close(conn);
@@ -119,7 +112,7 @@ public void createrableidiomas() {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closepreparedstatement(preparedStatement);
+			closestatement(preparedStatement);
 		}
 		manager.close(conn);
 	}
@@ -135,7 +128,7 @@ public void createrableidiomas() {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closepreparedstatement(preparedStatement);
+			closestatement(preparedStatement);
 		}
 		
 		
@@ -154,7 +147,7 @@ public void createrableidiomas() {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closepreparedstatement(preparedStatement);
+			closestatement(preparedStatement);
 		}
 		
 		
@@ -180,7 +173,7 @@ public void createrableidiomas() {
 			throw new RuntimeException(e);
 		}finally {
 			closeresultset(resultSet);
-			closepreparedstatement(prepareStatement);
+			closestatement(prepareStatement);
 		}
 		manager.close(conn);
 		return listUsers;
@@ -205,7 +198,7 @@ public void createrableidiomas() {
 		}finally {
 			
 			closeresultset(resultSet);
-			closepreparedstatement(prepareStatement);
+			closestatement(prepareStatement);
 		}
 		
 		manager.close(conn);
@@ -250,7 +243,7 @@ public void createrableidiomas() {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			closepreparedstatement(preparedStatement);
+			closestatement(preparedStatement);
 			manager.close(conn);
 			
 		}
