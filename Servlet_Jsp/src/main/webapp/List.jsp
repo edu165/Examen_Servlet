@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ page import="java.io.*,java.util.*,es.salesianos.model.*" %>
+<link rel="stylesheet" type="text/css" href="./css/estilos.css" />
 
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,29 +11,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style type="text/css">
-  .boton{
-    text-decoration: none;
-    padding: 5px;
-    font-weight: 400;
-    font-size: 15px;
-    color:white;
-    background-color: gray;
-    border-radius: 6px;
-    border: 2px solid medium;
-  }
-   .botonmin{
-    text-decoration: none;
-    padding: 6px;
-    font-weight: 200;
-    font-size: 15px;
-    color:white;
-    background-color: gray;
-    border-radius: 4px;
-    border: 2px solid medium;
-    align:center;
-  }
-</style>
+
+ 
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous">
 </script>

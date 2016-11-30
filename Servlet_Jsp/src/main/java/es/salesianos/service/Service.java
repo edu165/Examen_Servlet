@@ -34,13 +34,14 @@ public class Service {
 	public List SearchAllPaises(){
 		return repository.searchallpaises();
 	}
-	public void insertOrUpdate(Pais userFormulario) {
-	
-		repository.createrableidiomas();
+	public List<Idiomas> SearchAllIdiomas(){
+		return repository.searchallidiomas();
 		
+	}
+	public void insertOrUpdate(Pais userFormulario) {
+	repository.createrableidiomas();
 		Pais userInDatabase = repository.search(userFormulario);
 	
-		
 		if(null == userInDatabase){
 			repository.insertpaises(userFormulario);
 		}else{

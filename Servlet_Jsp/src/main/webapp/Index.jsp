@@ -1,4 +1,5 @@
 <%@page import="es.salesianos.repository.Repository"%>
+<%@page import="es.salesianos.service.Service"%>
 <%@page import="es.salesianos.model.Idiomas"%>
 
 
@@ -12,7 +13,7 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="./estilos/estilos.css" />
+<link rel="stylesheet" type="text/css" href="./css/estilos.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
@@ -37,8 +38,9 @@
 <td><p>Idioma Select:</p></td>
 			<td>
 				<select name="idioma" id="idioma">
-					<%  List<Idiomas> listAllIdiomas = new ArrayList<Idiomas>();
-						listAllIdiomas = Repository.searchAllIdiomas(); 
+					<% Service service=  new Service();  
+					List<Idiomas> listAllIdiomas = new ArrayList<Idiomas>();
+						listAllIdiomas = service.SearchAllIdiomas(); 
 						for (int i=0;i<listAllIdiomas.size();i++){
 						   out.println("<option value ='"+listAllIdiomas.get(i).getIdioma()+"'>"+listAllIdiomas.get(i).getIdioma()+"</option>");
 						}

@@ -18,7 +18,7 @@ public class Repository {
 	static ConnectionManager manager = new ConnectionH2();
 	Connection connection = null;
 		Statement statement = null;
-public static  void closeresultset(ResultSet resultSet) {
+public  void closeresultset(ResultSet resultSet) {
 			try {
 				resultSet.close();
 			} catch (SQLException e) {
@@ -26,7 +26,7 @@ public static  void closeresultset(ResultSet resultSet) {
 				throw new RuntimeException(e);
 			}
 		}
-private static void closestatement(Statement statement) {
+private  void closestatement(Statement statement) {
 			try {
 				statement.close();
 			} catch (SQLException e) {
@@ -35,7 +35,7 @@ private static void closestatement(Statement statement) {
 			}
 		}
 
-private static void closepreparedstatement(PreparedStatement prepareStatement) {
+private  void closepreparedstatement(PreparedStatement prepareStatement) {
 	try {
 		prepareStatement.close();
 	} catch (SQLException e) {
@@ -186,7 +186,7 @@ public void createrableidiomas() {
 		return listUsers;
 	}
 
-	public static List<Idiomas> searchAllIdiomas() {
+	public  List<Idiomas> searchallidiomas() {
 		List<Idiomas> listUsers= new ArrayList<Idiomas>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
