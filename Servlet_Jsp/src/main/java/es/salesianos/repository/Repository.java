@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
-import es.salesianos.model.Idiomas;
-import es.salesianos.model.Pais;
+import es.salesianos.model.Language;
+import es.salesianos.model.Country;
 
 public class Repository {
 	
@@ -71,8 +71,8 @@ public void createrableidiomas() {
 			}
 	}
 
-	public Pais search(Pais PaisFormulario) {
-		Pais PaisInDatabase= null;
+	public Country search(Country PaisFormulario) {
+		Country PaisInDatabase= null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
@@ -81,7 +81,7 @@ public void createrableidiomas() {
 			prepareStatement.setString(1, PaisFormulario.getPais());
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
-				PaisInDatabase = new Pais();
+				PaisInDatabase = new Country();
 				PaisInDatabase.setPais(resultSet.getString(1));
 				PaisInDatabase.setIdioma(resultSet.getString(2));
 				}
@@ -99,7 +99,7 @@ public void createrableidiomas() {
 
 
 
-	public void insertpaises(Pais PaisFormulario) {
+	public void insertpaises(Country PaisFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -116,7 +116,7 @@ public void createrableidiomas() {
 		}
 		manager.close(conn);
 	}
-	public void insertidiomas(Idiomas PaisrFormulario) {
+	public void insertidiomas(Language PaisrFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -135,7 +135,7 @@ public void createrableidiomas() {
 		manager.close(conn);
 	}
 
-	public void update(Pais PaiFormulario) {
+	public void update(Country PaiFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -154,7 +154,7 @@ public void createrableidiomas() {
 		manager.close(conn);
 	}
 	public  List searchallpaises() {
-		List<Pais> listUsers= new ArrayList<Pais>();
+		List<Country> listUsers= new ArrayList<Country>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -162,7 +162,7 @@ public void createrableidiomas() {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises");
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
-				Pais userInDatabase = new Pais();
+				Country userInDatabase = new Country();
 				userInDatabase.setPais(resultSet.getString(1));
 				userInDatabase.setIdioma(resultSet.getString(2));
 				listUsers.add(userInDatabase);
@@ -179,8 +179,8 @@ public void createrableidiomas() {
 		return listUsers;
 	}
 
-	public  List<Idiomas> searchallidiomas() {
-		List<Idiomas> listUsers= new ArrayList<Idiomas>();
+	public  List<Language> searchallidiomas() {
+		List<Language> listUsers= new ArrayList<Language>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -188,7 +188,7 @@ public void createrableidiomas() {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Idiomas");
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
-				Idiomas PaisInDatabase = new Idiomas();
+				Language PaisInDatabase = new Language();
 				PaisInDatabase.setIdioma(resultSet.getString(1));
 				listUsers.add(PaisInDatabase);
 			}

@@ -1,6 +1,6 @@
 package es.salesianos.model;
 
-public class Idiomas {
+public class Language {
 		
 		private String idioma;
 

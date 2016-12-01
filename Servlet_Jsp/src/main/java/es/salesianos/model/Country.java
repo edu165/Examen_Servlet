@@ -1,6 +1,6 @@
 package es.salesianos.model;
 
-public class Pais {
+public class Country {
 
 	private String pais;
 	private String idioma;
