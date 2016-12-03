@@ -1,6 +1,6 @@
 <%@page import="es.salesianos.repository.Repository"%>
 <%@page import="es.salesianos.service.Service"%>
-<%@page import="es.salesianos.model.Idiomas"%>
+<%@page import="es.salesianos.model.Language"%>
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,7 +15,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="./css/estilos.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Servlet Eduardo</title>
 
 </head>
 
@@ -39,7 +39,7 @@
 			<td>
 				<select name="idioma" id="idioma">
 					<% Service service=  new Service();  
-					List<Idiomas> listAllIdiomas = new ArrayList<Idiomas>();
+					List<Language> listAllIdiomas = new ArrayList<Language>();
 						listAllIdiomas = service.SearchAllIdiomas(); 
 						for (int i=0;i<listAllIdiomas.size();i++){
 						   out.println("<option value ='"+listAllIdiomas.get(i).getIdioma()+"'>"+listAllIdiomas.get(i).getIdioma()+"</option>");
@@ -48,10 +48,7 @@
 				</select>
 			</td>
 			
-			
-			
-			
-		<tr>
+			<tr>
 			<td colspan="2" align="right"><input class="boton" type="submit" value="Enviar"></td>
 		</tr>
 		<tr>

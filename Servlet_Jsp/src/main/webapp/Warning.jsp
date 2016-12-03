@@ -6,18 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="refresh" content="5;url=Paises.jsp" />
 <title>Warning</title>
-<style type="text/css">
-  .boton{
-    text-decoration: none;
-    padding: 5px;
-    font-weight: 400;
-    font-size: 15px;
-    color:white;
-    background-color: gray;
-    border-radius: 6px;
-    border: 2px solid medium;
-  }
-</style>
+
 </head>
 <body>
 <center><h1>ESTO PUEDE SER   ELIMINADO</h1>
