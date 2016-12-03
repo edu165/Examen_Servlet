@@ -8,9 +8,9 @@ import es.salesianos.model.Country;
 public class LanguageAssembler {
 
 	public static Language assemblecountryFrom(HttpServletRequest req) {
-		Language idioma = new Language();
-		String idiomas = req.getParameter("idioma2");
-	idioma.setIdioma(idiomas);
-	   return idioma;
+		Language language = new Language();
+		String languages = req.getParameter("idioma2");
+	language.setIdioma(languages);
+	   return language;
 	}
 }

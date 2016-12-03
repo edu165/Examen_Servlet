@@ -28,25 +28,25 @@ public class Service {
 		repository.createtablepaises();
 		
 	}
-	public void insertidiomas(Language idiomas){
+	public void insertlaguages(Language language){
 		
-		repository.insertidiomas(idiomas);
+		repository.insertidiomas(language);
 	}
 	public List searchallpaises(){
-		return repository.searchallpaises();
+		return repository.searchallcountry();
 	}
-	public List<Language> SearchAllIdiomas(){
-		return repository.searchallidiomas();
+	public List<Language> SearchAllIlanguage(){
+		return repository.searchalllanguages();
 		
 	}
-	public void insertorupdate(Country Formulario) {
+	public void insertorupdate(Country country) {
 	repository.createrableidiomas();
-		Country countryInDatabase = repository.search(Formulario);
+		Country countryInDatabase = repository.search(country);
 	
 		if(null == countryInDatabase){
-			repository.insertpaises(Formulario);
+			repository.insertpaises(country);
 		}else{
-			repository.update(Formulario);
+			repository.update(country);
 		}
 	}
 	public ConnectionManager getManager() {
@@ -58,7 +58,7 @@ public class Service {
 	public void delete(String country){
 	
 		repository.deletepais(country);
-		repository.deleteidiomas(country);
+		repository.deletecountry(country);
 	
 	}
 	

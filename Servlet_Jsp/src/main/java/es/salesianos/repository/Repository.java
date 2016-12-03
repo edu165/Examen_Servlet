@@ -72,7 +72,7 @@ public void createrableidiomas() {
 	}
 
 	public Country search(Country PaisFormulario) {
-		Country PaisInDatabase= null;
+		Country countryInDatabase= null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
@@ -81,9 +81,9 @@ public void createrableidiomas() {
 			prepareStatement.setString(1, PaisFormulario.getPais());
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
-				PaisInDatabase = new Country();
-				PaisInDatabase.setPais(resultSet.getString(1));
-				PaisInDatabase.setIdioma(resultSet.getString(2));
+				countryInDatabase = new Country();
+				countryInDatabase.setPais(resultSet.getString(1));
+				countryInDatabase.setIdioma(resultSet.getString(2));
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,19 +94,19 @@ public void createrableidiomas() {
 			
 		}
 		manager.close(conn);
-		return PaisInDatabase;
+		return countryInDatabase;
 	}
 
 
 
-	public void insertpaises(Country PaisFormulario) {
+	public void insertpaises(Country countryFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("INSERT INTO Paises (pais, idioma)" +
 					"VALUES (?, ?)");
-			preparedStatement.setString(1, PaisFormulario.getPais());
-			preparedStatement.setString(2, PaisFormulario.getIdioma());
+			preparedStatement.setString(1, countryFormulario.getPais());
+			preparedStatement.setString(2, countryFormulario.getIdioma());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -116,13 +116,13 @@ public void createrableidiomas() {
 		}
 		manager.close(conn);
 	}
-	public void insertidiomas(Language PaisrFormulario) {
+	public void insertidiomas(Language countryform) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("INSERT INTO idiomas (idioma)" +
 					"VALUES (?)");
-		preparedStatement.setString(1, PaisrFormulario.getIdioma());
+		preparedStatement.setString(1, countryform.getIdioma());
 		preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -135,13 +135,13 @@ public void createrableidiomas() {
 		manager.close(conn);
 	}
 
-	public void update(Country PaiFormulario) {
+	public void update(Country countryform) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("UPDATE paises SET idioma=?  where pais=?");
-			preparedStatement.setString(1, PaiFormulario.getIdioma());
-			preparedStatement.setString(2, PaiFormulario.getPais());
+			preparedStatement.setString(1, countryform.getIdioma());
+			preparedStatement.setString(2, countryform.getPais());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -153,7 +153,7 @@ public void createrableidiomas() {
 		
 		manager.close(conn);
 	}
-	public  List searchallpaises() {
+	public  List searchallcountry() {
 		List<Country> listcountry= new ArrayList<Country>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -178,8 +178,9 @@ public void createrableidiomas() {
 		manager.close(conn);
 		return listcountry;
 	}
+	
 
-	public  List<Language> searchallidiomas() {
+	public  List<Language> searchalllanguages() {
 		List<Language> listcountry= new ArrayList<Language>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -205,13 +206,13 @@ public void createrableidiomas() {
 		return listcountry;
 	}
 	
-	public void deletepais(String idioma) {
+	public void deletepais(String country) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
 		try {
 		    preparedStatement = conn.prepareStatement("DELETE from Paises where idioma=? ");
-			preparedStatement.setString(1, idioma);
+			preparedStatement.setString(1, country);
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -227,14 +228,14 @@ public void createrableidiomas() {
 			
 		}
 	}
-	public void deleteidiomas(String idioma) {
+	public void deletecountry(String language) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
 		try {
 		   
 			 preparedStatement = conn.prepareStatement("DELETE  from Idiomas where idioma=? ");
-				preparedStatement.setString(1, idioma);
+				preparedStatement.setString(1, language);
 			preparedStatement.executeUpdate();
 			
 
