@@ -217,14 +217,9 @@ public void createrableidiomas() {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (preparedStatement != null && conn != null) {
-				try {
-					preparedStatement.close();
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closestatement(preparedStatement);
+			manager.close(conn);
+			
 			
 		}
 	}
