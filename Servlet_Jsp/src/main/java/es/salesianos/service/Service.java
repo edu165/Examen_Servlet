@@ -23,22 +23,23 @@ public class Service {
 	public Language assembleLanguagerFromRequest(HttpServletRequest req) {
 		return LanguageAssembler.assembleUserFrom(req);
 	}
-	public void CreateTable(){
+	public void createtable(){
 		repository.createrableidiomas();;
 		repository.createtablepaises();
 		
 	}
-	public void InsertIdiomas(Language idiomas){
+	public void insertidiomas(Language idiomas){
+		
 		repository.insertidiomas(idiomas);
 	}
-	public List SearchAllPaises(){
+	public List searchallpaises(){
 		return repository.searchallpaises();
 	}
 	public List<Language> SearchAllIdiomas(){
 		return repository.searchallidiomas();
 		
 	}
-	public void insertOrUpdate(Country userFormulario) {
+	public void insertorupdate(Country userFormulario) {
 	repository.createrableidiomas();
 		Country userInDatabase = repository.search(userFormulario);
 	
@@ -54,7 +55,7 @@ public class Service {
 	public void setManager(ConnectionManager manager) {
 		this.manager = manager;
 	}
-	public void Delete(String user){
+	public void delete(String user){
 	
 		repository.deletepais(user);
 		repository.deleteidiomas(user);

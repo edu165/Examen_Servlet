@@ -26,7 +26,7 @@ public class ComebackServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String idioma = req.getParameter("idiomaborrar");
 		req.setAttribute("idiomaborrar", idioma);
-		service.Delete(idioma);
+		service.delete(idioma);
 		redirect(req,resp);
 	}
 	
