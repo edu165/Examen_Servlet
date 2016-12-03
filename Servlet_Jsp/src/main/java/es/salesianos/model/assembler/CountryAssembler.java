@@ -6,15 +6,15 @@ import es.salesianos.model.Country;
 
 public class CountryAssembler {
 
-	public static Country assembleUserFrom(HttpServletRequest req) {
-		Country user = new Country();
+	public static Country assembleCountryFrom(HttpServletRequest req) {
+		Country country = new Country();
 		String pais = req.getParameter("pais");
 		
 		String idioma = req.getParameter("idioma");
 	
-		user.setPais(pais);
-		user.setIdioma(idioma);
+		country.setPais(pais);
+		country.setIdioma(idioma);
 		
-		return user;
+		return country;
 	}
 }

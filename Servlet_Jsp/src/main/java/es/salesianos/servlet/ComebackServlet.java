@@ -24,9 +24,9 @@ public class ComebackServlet extends HttpServlet{
 	private Service service = new Service();
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    String idioma = req.getParameter("countrydelete2");
-		req.setAttribute("countrydelete2", idioma);
-		service.delete(idioma);
+    String language = req.getParameter("countrydelete2");
+		req.setAttribute("countrydelete2", language);
+		service.delete(language);
 		redirect(req,resp);
 	}
 	

@@ -11,7 +11,7 @@
 <body>
 <center><h1>ESTO PUEDE SER   ELIMINADO</h1>
 <form method="post" action="delete">
-		<input  type="hidden" value="${id}" name="idiomaborrar">
+		<input  type="hidden" value="${id}" name="countrydelete2">
 		<br>
 		<input  class="boton" type="submit"  value="SI, estoy seguro">
 		<a  href="List.jsp" class="boton" >NO, quiero eliminarlo</a>

@@ -154,7 +154,7 @@ public void createrableidiomas() {
 		manager.close(conn);
 	}
 	public  List searchallpaises() {
-		List<Country> listUsers= new ArrayList<Country>();
+		List<Country> listcountry= new ArrayList<Country>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -162,10 +162,10 @@ public void createrableidiomas() {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises");
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
-				Country userInDatabase = new Country();
-				userInDatabase.setPais(resultSet.getString(1));
-				userInDatabase.setIdioma(resultSet.getString(2));
-				listUsers.add(userInDatabase);
+				Country countryInDatabase = new Country();
+				countryInDatabase.setPais(resultSet.getString(1));
+				countryInDatabase.setIdioma(resultSet.getString(2));
+				listcountry.add(countryInDatabase);
 			}
 			
 		} catch (SQLException e) {
@@ -176,11 +176,11 @@ public void createrableidiomas() {
 			closestatement(prepareStatement);
 		}
 		manager.close(conn);
-		return listUsers;
+		return listcountry;
 	}
 
 	public  List<Language> searchallidiomas() {
-		List<Language> listUsers= new ArrayList<Language>();
+		List<Language> listcountry= new ArrayList<Language>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
@@ -190,7 +190,7 @@ public void createrableidiomas() {
 			while(resultSet.next()){
 				Language PaisInDatabase = new Language();
 				PaisInDatabase.setIdioma(resultSet.getString(1));
-				listUsers.add(PaisInDatabase);
+				listcountry.add(PaisInDatabase);
 			}
 			} catch (SQLException e) {
 			e.printStackTrace();
@@ -202,7 +202,7 @@ public void createrableidiomas() {
 		}
 		
 		manager.close(conn);
-		return listUsers;
+		return listcountry;
 	}
 	
 	public void deletepais(String idioma) {

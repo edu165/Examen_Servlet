@@ -18,10 +18,10 @@ public class Service {
 	private ConnectionManager manager = new ConnectionH2();
 	
 	public Country assembleCountryFromRequest(HttpServletRequest req) {
-		return CountryAssembler.assembleUserFrom(req);
+		return CountryAssembler.assembleCountryFrom(req);
 	}
 	public Language assembleLanguagerFromRequest(HttpServletRequest req) {
-		return LanguageAssembler.assembleUserFrom(req);
+		return LanguageAssembler.assemblecountryFrom(req);
 	}
 	public void createtable(){
 		repository.createrableidiomas();;
@@ -39,14 +39,14 @@ public class Service {
 		return repository.searchallidiomas();
 		
 	}
-	public void insertorupdate(Country userFormulario) {
+	public void insertorupdate(Country Formulario) {
 	repository.createrableidiomas();
-		Country userInDatabase = repository.search(userFormulario);
+		Country countryInDatabase = repository.search(Formulario);
 	
-		if(null == userInDatabase){
-			repository.insertpaises(userFormulario);
+		if(null == countryInDatabase){
+			repository.insertpaises(Formulario);
 		}else{
-			repository.update(userFormulario);
+			repository.update(Formulario);
 		}
 	}
 	public ConnectionManager getManager() {
@@ -55,10 +55,10 @@ public class Service {
 	public void setManager(ConnectionManager manager) {
 		this.manager = manager;
 	}
-	public void delete(String user){
+	public void delete(String country){
 	
-		repository.deletepais(user);
-		repository.deleteidiomas(user);
+		repository.deletepais(country);
+		repository.deleteidiomas(country);
 	
 	}
 	
