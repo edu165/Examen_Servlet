@@ -8,12 +8,12 @@ public class CountryAssembler {
 
 	public static Country assembleCountryFrom(HttpServletRequest req) {
 		Country country = new Country();
-		String pais = req.getParameter("pais");
+		String country2 = req.getParameter("pais");
 		
-		String idioma = req.getParameter("idioma");
+		String language = req.getParameter("idioma");
 	
-		country.setPais(pais);
-		country.setIdioma(idioma);
+		country.setPais(country2);
+		country.setIdioma(language);
 		
 		return country;
 	}
