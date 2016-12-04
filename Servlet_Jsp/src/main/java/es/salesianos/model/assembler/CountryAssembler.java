@@ -12,8 +12,8 @@ public class CountryAssembler {
 		
 		String language = req.getParameter("idioma");
 	
-		country.setPais(country2);
-		country.setIdioma(language);
+		country.setCountry(country2);
+		country.setLanguage(language);
 		
 		return country;
 	}

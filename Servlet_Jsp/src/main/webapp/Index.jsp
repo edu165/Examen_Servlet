@@ -40,7 +40,7 @@
 				<select name="idioma" id="idioma">
 					<% Service service=  new Service();  
 					List<Language> listAllIdiomas = new ArrayList<Language>();
-						listAllIdiomas = service.SearchAllIdiomas(); 
+						listAllIdiomas = service.SearchAllIlanguage(); 
 						for (int i=0;i<listAllIdiomas.size();i++){
 						   out.println("<option value ='"+listAllIdiomas.get(i).getIdioma()+"'>"+listAllIdiomas.get(i).getIdioma()+"</option>");
 						}

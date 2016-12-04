@@ -78,12 +78,12 @@ public void createrableidiomas() {
 		Connection conn = manager.open(jdbcUrl);
 		try {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises WHERE Pais = ?");
-			prepareStatement.setString(1, PaisFormulario.getPais());
+			prepareStatement.setString(1, PaisFormulario.getCountry());
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
 				countryInDatabase = new Country();
-				countryInDatabase.setPais(resultSet.getString(1));
-				countryInDatabase.setIdioma(resultSet.getString(2));
+				countryInDatabase.setCountry(resultSet.getString(1));
+				countryInDatabase.setLanguage(resultSet.getString(2));
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,8 +105,8 @@ public void createrableidiomas() {
 		try {
 			preparedStatement = conn.prepareStatement("INSERT INTO Paises (pais, idioma)" +
 					"VALUES (?, ?)");
-			preparedStatement.setString(1, countryFormulario.getPais());
-			preparedStatement.setString(2, countryFormulario.getIdioma());
+			preparedStatement.setString(1, countryFormulario.getCountry());
+			preparedStatement.setString(2, countryFormulario.getLanguage());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -122,7 +122,7 @@ public void createrableidiomas() {
 		try {
 			preparedStatement = conn.prepareStatement("INSERT INTO idiomas (idioma)" +
 					"VALUES (?)");
-		preparedStatement.setString(1, countryform.getIdioma());
+		preparedStatement.setString(1, countryform.getLanguage());
 		preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -140,8 +140,8 @@ public void createrableidiomas() {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("UPDATE paises SET idioma=?  where pais=?");
-			preparedStatement.setString(1, countryform.getIdioma());
-			preparedStatement.setString(2, countryform.getPais());
+			preparedStatement.setString(1, countryform.getLanguage());
+			preparedStatement.setString(2, countryform.getCountry());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -163,8 +163,8 @@ public void createrableidiomas() {
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
 				Country countryInDatabase = new Country();
-				countryInDatabase.setPais(resultSet.getString(1));
-				countryInDatabase.setIdioma(resultSet.getString(2));
+				countryInDatabase.setCountry(resultSet.getString(1));
+				countryInDatabase.setLanguage(resultSet.getString(2));
 				listcountry.add(countryInDatabase);
 			}
 			
@@ -190,7 +190,7 @@ public void createrableidiomas() {
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
 				Language PaisInDatabase = new Language();
-				PaisInDatabase.setIdioma(resultSet.getString(1));
+				PaisInDatabase.setLanguage(resultSet.getString(1));
 				listcountry.add(PaisInDatabase);
 			}
 			} catch (SQLException e) {

@@ -2,28 +2,28 @@ package es.salesianos.model;
 
 public class Country {
 
-	private String pais;
-	private String idioma;
+	private String country;
+	private String language;
 
-	public String getPais() {
-		return pais;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setPais(String pais) {
-		this.pais = pais;
+	public void setCountry(String pais) {
+		this.country = pais;
 	}
 
-	public String getIdioma() {
-		return idioma;
+	public String getLanguage() {
+		return language;
 	}
 
-	public void setIdioma(String idioma) {
-		this.idioma = idioma;
+	public void setLanguage(String idioma) {
+		this.language = idioma;
 	}
 
 	@Override
 	public String toString() {
-		return "User [pais=" + pais + ", idioma=" + idioma + "]";
+		return "User [pais=" + country + ", idioma=" + language + "]";
 	}
 
 }

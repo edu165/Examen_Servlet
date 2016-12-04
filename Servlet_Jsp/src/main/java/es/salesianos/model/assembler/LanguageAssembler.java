@@ -10,7 +10,7 @@ public class LanguageAssembler {
 	public static Language assemblecountryFrom(HttpServletRequest req) {
 		Language language = new Language();
 		String languages = req.getParameter("idioma2");
-	language.setIdioma(languages);
+	language.setLanguage(languages);
 	   return language;
 	}
 }
