@@ -14,7 +14,7 @@
 		<input  type="hidden" value="${id}" name="countrydelete2">
 		<br>
 		<input  class="boton" type="submit"  value="SI, estoy seguro">
-		<a  href="List.jsp" class="boton" >NO, quiero eliminarlo</a>
+		<a  class="boton"    href="List.jsp">NO, quiero eliminarlo</a>
 	</form>	
 </center>
 </body>
