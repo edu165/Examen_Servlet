@@ -12,9 +12,13 @@ import es.salesianos.model.Language;
 import es.salesianos.model.Country;
 import es.salesianos.model.assembler.LanguageAssembler;
 import es.salesianos.model.assembler.CountryAssembler;
-import es.salesianos.repository.Repository;
+import es.salesianos.repository.RepositoryCountry;
+import es.salesianos.repository.RepositoryLanguage
+;
 public class Service {
-	private Repository repository = new Repository();
+	private RepositoryCountry repositorycountry = new RepositoryCountry();
+	private RepositoryLanguage repositorylanguage = new RepositoryLanguage();
+	
 	private ConnectionManager manager = new ConnectionH2();
 	
 	public Country assembleCountryFromRequest(HttpServletRequest req) {
@@ -24,29 +28,29 @@ public class Service {
 		return LanguageAssembler.assemblecountryFrom(req);
 	}
 	public void createtable(){
-		repository.createrableidiomas();;
-		repository.createtablepaises();
+		repositorycountry.createrableidiomas();;
+		repositorylanguage.createrablelanguage();
 		
 	}
 	public void insertlaguages(Language language){
 		
-		repository.insertlanguage(language);
+		repositorylanguage.insertlanguage(language);
 	}
 	public List searchallpaises(){
-		return repository.searchallcountry();
+		return repositorycountry.searchallcountry();
 	}
 	public List<Language> SearchAllIlanguage(){
-		return repository.searchalllanguages();
+		return repositorylanguage.searchalllanguages();
 		
 	}
 	public void insertorupdate(Country country) {
-	repository.createrableidiomas();
-		Country countryInDatabase = repository.search(country);
+	repositorycountry.createrableidiomas();
+		Country countryInDatabase = repositorycountry.search(country);
 	
 		if(null == countryInDatabase){
-			repository.insertpaises(country);
+			repositorycountry.insertpaises(country);
 		}else{
-			repository.update(country);
+			repositorycountry.update(country);
 		}
 	}
 	public ConnectionManager getManager() {
@@ -57,8 +61,8 @@ public class Service {
 	}
 	public void delete(String country){
 	
-		repository.deletepais(country);
-		repository.deletecountry(country);
+		repositorycountry.deletecountry(country);
+		repositorylanguage.deletelanguage(country);
 	
 	}
 	

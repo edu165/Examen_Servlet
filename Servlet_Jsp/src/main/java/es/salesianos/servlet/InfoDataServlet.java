@@ -16,7 +16,7 @@ import es.salesianos.model.Country;
 import es.salesianos.model.assembler.CountryAssembler;
 import es.salesianos.service.Service;
 
-import es.salesianos.repository.Repository;
+import es.salesianos.repository.RepositoryCountry;
 
 
 public class InfoDataServlet extends HttpServlet{

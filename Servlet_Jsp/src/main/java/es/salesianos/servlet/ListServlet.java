@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Language;
 import es.salesianos.model.Country;
-import es.salesianos.repository.Repository;
+import es.salesianos.repository.RepositoryCountry;
 import es.salesianos.service.Service;
 
 public class ListServlet extends HttpServlet {

@@ -15,7 +15,7 @@ import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Country;
 import es.salesianos.model.assembler.CountryAssembler;
-import es.salesianos.repository.Repository;
+import es.salesianos.repository.RepositoryCountry;
 import es.salesianos.service.Service;
 
 

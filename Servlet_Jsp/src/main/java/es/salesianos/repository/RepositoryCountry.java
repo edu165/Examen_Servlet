@@ -12,7 +12,7 @@ import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Language;
 import es.salesianos.model.Country;
 
-public class Repository {
+public class RepositoryCountry {
 	
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test2";
 	static ConnectionManager manager = new ConnectionH2();
@@ -54,7 +54,7 @@ public void createrableidiomas() {
 		}
 		}
 	
-		public void createtablepaises() {
+		public void createtablecountry() {
 		Connection connection = null;
 		Statement statement = null;
 		try {
@@ -71,14 +71,14 @@ public void createrableidiomas() {
 			}
 	}
 
-	public Country search(Country PaisFormulario) {
+	public Country search(Country CountryFormulario) {
 		Country countryInDatabase= null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
 		try {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises WHERE Pais = ?");
-			prepareStatement.setString(1, PaisFormulario.getCountry());
+			prepareStatement.setString(1, CountryFormulario.getCountry());
 			resultSet = prepareStatement.executeQuery();
 			while(resultSet.next()){
 				countryInDatabase = new Country();
@@ -116,25 +116,7 @@ public void createrableidiomas() {
 		}
 		manager.close(conn);
 	}
-	public void insertlanguage(Language countryform) {
-		Connection conn = manager.open(jdbcUrl);
-		PreparedStatement preparedStatement = null;
-		try {
-			preparedStatement = conn.prepareStatement("INSERT INTO idiomas (idioma)" +
-					"VALUES (?)");
-		preparedStatement.setString(1, countryform.getLanguage());
-		preparedStatement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}finally {
-			closestatement(preparedStatement);
-		}
-		
-		
-		manager.close(conn);
-	}
-
+	
 	public void update(Country countryform) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -180,33 +162,9 @@ public void createrableidiomas() {
 	}
 	
 
-	public  List<Language> searchalllanguages() {
-		List<Language> listcountry= new ArrayList<Language>();
-		Connection conn = manager.open(jdbcUrl);
-		ResultSet resultSet = null;
-		PreparedStatement prepareStatement = null;
-		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM Idiomas");
-			resultSet = prepareStatement.executeQuery();
-			while(resultSet.next()){
-				Language PaisInDatabase = new Language();
-				PaisInDatabase.setLanguage(resultSet.getString(1));
-				listcountry.add(PaisInDatabase);
-			}
-			} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}finally {
-			
-			closeresultset(resultSet);
-			closestatement(prepareStatement);
-		}
-		
-		manager.close(conn);
-		return listcountry;
-	}
 	
-	public void deletepais(String country) {
+	
+	public void deletecountry(String country) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
@@ -223,28 +181,8 @@ public void createrableidiomas() {
 			
 		}
 	}
-	public void deletecountry(String language) {
-		Connection conn = manager.open(jdbcUrl);
-		PreparedStatement preparedStatement = null;
-
-		try {
-		   
-			 preparedStatement = conn.prepareStatement("DELETE  from Idiomas where idioma=? ");
-				preparedStatement.setString(1, language);
-			preparedStatement.executeUpdate();
-			
-
-		
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			closestatement(preparedStatement);
-			manager.close(conn);
-			
-		}
+	
 
 
 }
 	
-}
