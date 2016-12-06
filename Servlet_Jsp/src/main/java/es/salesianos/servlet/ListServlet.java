@@ -22,7 +22,7 @@ public class ListServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Country> listallcountry = service.searchallpaises();
-				req.setAttribute("listAllUsers", listallcountry);
+				req.setAttribute("listAllLanguage", listallcountry);
 		redirect(req,resp);
 	}
 	
