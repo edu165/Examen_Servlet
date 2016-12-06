@@ -116,7 +116,7 @@ public void createrableidiomas() {
 		}
 		manager.close(conn);
 	}
-	public void insertidiomas(Language countryform) {
+	public void insertlanguage(Language countryform) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {

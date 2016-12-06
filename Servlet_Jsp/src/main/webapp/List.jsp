@@ -56,13 +56,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach var="country" items="${listAllUsers}">
+		<c:forEach var="country" items="${listAllLanguage}">
 			<tr>
-				<td><c:out value="${country.pais}"/> </td>
-				<td><c:out value="${country.idioma}"/> </td>
+				<td><c:out value="${country.country}"/> </td>
+				<td><c:out value="${country.language}"/> </td>
 				
 		
-	<td><a   class="botonmin" name="countrydelete" href="Delete_Warning?countrydelete=${country.idioma}">Borrar Idiomas </a></td>
+	<td><a   class="botonmin" name="countryDelete" href="Delete_Warning?countrydelete=${country.language}">Borrar Idiomas </a></td>
 	
 		
 	</form>	</td>

@@ -30,7 +30,7 @@ public class Service {
 	}
 	public void insertlaguages(Language language){
 		
-		repository.insertidiomas(language);
+		repository.insertlanguage(language);
 	}
 	public List searchallpaises(){
 		return repository.searchallcountry();
