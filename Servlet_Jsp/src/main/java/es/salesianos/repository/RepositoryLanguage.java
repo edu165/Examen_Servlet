@@ -109,11 +109,7 @@ public  List<Language> searchalllanguages() {
 			 preparedStatement = conn.prepareStatement("DELETE  from Idiomas where idioma=? ");
 				preparedStatement.setString(1, language);
 			preparedStatement.executeUpdate();
-			
-
-		
-
-		} catch (Exception e) {
+			} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			closestatement(preparedStatement);

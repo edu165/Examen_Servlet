@@ -1,4 +1,5 @@
-<%@page import="es.salesianos.repository.Repository"%>
+<%@page import="es.salesianos.repository.RepositoryLanguage"%>
+<%@page import="es.salesianos.repository.RepositoryCountry"%>
 <%@page import="es.salesianos.service.Service"%>
 <%@page import="es.salesianos.model.Language"%>
 
@@ -38,10 +39,10 @@
 				<td><p>Idioma Select:</p></td>
 				<td><select name="idioma" id="idioma">
 						<% Service service=  new Service();  
-					List<Language> listAllIdiomas = new ArrayList<Language>();
-						listAllIdiomas = service.SearchAllIlanguage(); 
-						for (int i=0;i<listAllIdiomas.size();i++){
-						   out.println("<option value ='"+listAllIdiomas.get(i).getLanguage()+"'>"+listAllIdiomas.get(i).getLanguage()+"</option>");
+					List<Language> listAlllanguage = new ArrayList<Language>();
+						listAlllanguage = service.SearchAllIlanguage(); 
+						for (int i=0;i<listAlllanguage.size();i++){
+						   out.println("<option value ='"+listAlllanguage.get(i).getLanguage()+"'>"+listAlllanguage.get(i).getLanguage()+"</option>");
 						}
 					%>
 
