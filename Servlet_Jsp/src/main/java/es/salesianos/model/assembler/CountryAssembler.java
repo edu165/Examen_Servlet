@@ -8,9 +8,9 @@ public class CountryAssembler {
 
 	public static Country assembleCountryFrom(HttpServletRequest req) {
 		Country country = new Country();
-		String country2 = req.getParameter("pais");
+		String country2 = req.getParameter("country");
 		
-		String language = req.getParameter("idioma");
+		String language = req.getParameter("language");
 	
 		country.setCountry(country2);
 		country.setLanguage(language);
