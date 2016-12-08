@@ -9,21 +9,21 @@ public class Country {
 		return country;
 	}
 
-	public void setCountry(String pais) {
-		this.country = pais;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public String getLanguage() {
 		return language;
 	}
 
-	public void setLanguage(String idioma) {
-		this.language = idioma;
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	@Override
 	public String toString() {
-		return "User [pais=" + country + ", idioma=" + language + "]";
+		return "Country [pais=" + country + ", idioma=" + language + "]";
 	}
 
 }

@@ -37,13 +37,17 @@
 			<tr>
 			<tr>
 				<td><p>Idioma Select:</p></td>
-				<td><select name="idioma" id="idioma">
-						<% Service service=  new Service();  
-					List<Language> listAlllanguage = service.SearchAllIlanguage(); ;
-					      for (int i=0;i<listAlllanguage.size();i++){
-						   out.println("<option value ='"+listAlllanguage.get(i).getLanguage()+"'>"+listAlllanguage.get(i).getLanguage()+"</option>");
+				<td><select name="language" id="language">
+				
+					<%  
+						Service service = new Service();
+						List<Language> listAllLanguages = service.SearchAllIlanguage(); 
+						for (Language language: listAllLanguages){
+						   out.println("<option value ='"+language.getLanguage()+"'>"+language.getLanguage()+"</option>");
 						}
 					%>
+				</select>
+				
 
 				</select></td>
 			<tr>

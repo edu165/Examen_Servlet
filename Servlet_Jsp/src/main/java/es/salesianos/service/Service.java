@@ -36,7 +36,7 @@ public class Service {
 		
 		repositorylanguage.insertlanguage(language);
 	}
-	public List searchallpaises(){
+	public List searchallcountries(){
 		return repositorycountry.searchallcountry();
 	}
 	public List<Language> SearchAllIlanguage(){

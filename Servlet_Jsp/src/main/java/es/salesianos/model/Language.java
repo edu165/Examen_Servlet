@@ -8,14 +8,14 @@ public class Language {
 public String getLanguage() {
 			return language;
 		}
-public void setLanguage(String idioma) {
-			this.language = idioma;
+public void setLanguage(String language) {
+			this.language = language;
 		}
 
 
 @Override
 	public String toString() {
-		return "Idiomas [idioma=" + language +  "]";
+		return "Language [idioma=" + language +  "]";
 	}
 	
 	

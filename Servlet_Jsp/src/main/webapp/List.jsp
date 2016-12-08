@@ -52,7 +52,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="country" items="${listAllLanguage}">
+						<c:forEach var="country" items="${lisAllCountries}">
 							<tr>
 								<td><c:out value="${country.country}" /></td>
 								<td><c:out value="${country.language}" /></td>
