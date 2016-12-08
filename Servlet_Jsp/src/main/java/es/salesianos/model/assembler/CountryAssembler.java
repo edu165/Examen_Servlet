@@ -8,11 +8,11 @@ public class CountryAssembler {
 
 	public static Country assembleCountryFrom(HttpServletRequest req) {
 		Country country = new Country();
-		String country2 = req.getParameter("country");
+		String countryname = req.getParameter("country");
 		
 		String language = req.getParameter("language");
 	
-		country.setCountry(country2);
+		country.setCountry(countryname);
 		country.setLanguage(language);
 		
 		return country;

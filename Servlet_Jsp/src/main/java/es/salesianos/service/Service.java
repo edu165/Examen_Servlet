@@ -28,7 +28,7 @@ public class Service {
 		return LanguageAssembler.assemblecountryFrom(req);
 	}
 	public void createtable(){
-		repositorycountry.createrableidiomas();;
+		repositorycountry.createtablecountry();;;
 		repositorylanguage.createrablelanguage();
 		
 	}
@@ -36,7 +36,7 @@ public class Service {
 		
 		repositorylanguage.insertlanguage(language);
 	}
-	public List searchallcountries(){
+	public List searchAllCountries(){
 		return repositorycountry.searchallcountry();
 	}
 	public List<Language> SearchAllIlanguage(){
@@ -44,7 +44,7 @@ public class Service {
 		
 	}
 	public void insertorupdate(Country country) {
-	repositorycountry.createrableidiomas();
+	repositorycountry.createtablecountry();;
 		Country countryInDatabase = repositorycountry.search(country);
 	
 		if(null == countryInDatabase){

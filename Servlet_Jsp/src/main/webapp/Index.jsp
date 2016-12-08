@@ -29,11 +29,11 @@
 			</tr>
 			<tr>
 				<td><p>Pais:</p></td>
-				<td><input type="text" id="user" name="country" size="30"></td>
+				<td><input type="text" id="country" name="country" size="30"></td>
 			</tr>
 			<tr>
 				<td><p>idioma Nuevo:</p></td>
-				<td><input type="text" id="language2" name="language2" size="30"></td>
+				<td><input type="text" id="Newlanguage" name="Newlanguage" size="30"></td>
 			<tr>
 			<tr>
 				<td><p>Idioma Select:</p></td>

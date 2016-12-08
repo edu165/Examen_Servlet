@@ -44,7 +44,6 @@ public void createrablelanguage() {
 			connection = manager.open(jdbcUrl);
 			statement = connection.createStatement();
 			statement.execute("create table IF NOT EXISTS Idiomas(idioma varchar(25) PRIMARY KEY);");
-			statement.execute("create table IF NOT EXISTS Paises(pais varchar(25) PRIMARY KEY,idioma varchar(25));");
 			} catch (Exception e) {
 			e.printStackTrace();
 		} finally  {

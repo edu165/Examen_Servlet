@@ -34,33 +34,12 @@ private  void closestatement(Statement statement) {
 				throw new RuntimeException(e);
 			}
 		}
-
-
-public void createrableidiomas() {
-		Connection connection = null;
-		Statement statement = null;
-
-		try {
-			connection = manager.open(jdbcUrl);
-			statement = connection.createStatement();
-			statement.execute("create table IF NOT EXISTS Idiomas(idioma varchar(25) PRIMARY KEY);");
-			statement.execute("create table IF NOT EXISTS Paises(pais varchar(25) PRIMARY KEY,idioma varchar(25));");
-			} catch (Exception e) {
-			e.printStackTrace();
-		} finally  {
-			 closestatement(statement);
-			manager.close(connection);
-			
-		}
-		}
-	
-		public void createtablecountry() {
+public void createtablecountry() {
 		Connection connection = null;
 		Statement statement = null;
 		try {
 			connection = manager.open(jdbcUrl);
 			statement = connection.createStatement();
-			
 			statement.execute("create table IF NOT EXISTS Paises(pais varchar(25) PRIMARY KEY,idioma varchar(25));");
 
 		} catch (Exception e) {

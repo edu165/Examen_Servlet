@@ -21,7 +21,7 @@ public class ListServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Country> listallcountry = service.searchallcountries();
+		List<Country> listallcountry = service.searchAllCountries();
 				req.setAttribute("lisAllCountries", listallcountry);
 		redirect(req,resp);
 	}
