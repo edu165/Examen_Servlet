@@ -16,8 +16,6 @@ public class RepositoryLanguage extends Repository {
 
 	static ConnectionManager manager = new ConnectionH2();
 
-	Repository repository = new Repository();
-
 	public void createrablelanguage() {
 		Connection connection = null;
 		Statement statement = null;
@@ -29,7 +27,7 @@ public class RepositoryLanguage extends Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			repository.closestatement(statement);
+			closestatement(statement);
 			manager.close(connection);
 
 		}
@@ -46,7 +44,7 @@ public class RepositoryLanguage extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			repository.closestatement(preparedStatement);
+			closestatement(preparedStatement);
 		}
 
 		manager.close(conn);
@@ -70,8 +68,8 @@ public class RepositoryLanguage extends Repository {
 			throw new RuntimeException(e);
 		} finally {
 
-			repository.closeresultset(resultSet);
-			repository.closestatement(prepareStatement);
+			closeresultset(resultSet);
+			closestatement(prepareStatement);
 		}
 
 		manager.close(conn);
@@ -90,7 +88,7 @@ public class RepositoryLanguage extends Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			repository.closestatement(preparedStatement);
+			closestatement(preparedStatement);
 			manager.close(conn);
 
 		}

@@ -13,7 +13,6 @@ import es.salesianos.model.Country;
 public class RepositoryCountry extends Repository {
 	Connection connection = null;
 	Statement statement = null;
-	Repository repository = new Repository();
 
 	public void createtablecountry() {
 		Connection connection = null;
@@ -26,7 +25,7 @@ public class RepositoryCountry extends Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			repository.closestatement(statement);
+			closestatement(statement);
 
 			manager.close(connection);
 		}
@@ -50,8 +49,8 @@ public class RepositoryCountry extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			repository.closeresultset(resultSet);
-			repository.closestatement(prepareStatement);
+			closeresultset(resultSet);
+			closestatement(prepareStatement);
 
 		}
 		manager.close(conn);
@@ -70,7 +69,7 @@ public class RepositoryCountry extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			repository.closestatement(preparedStatement);
+			closestatement(preparedStatement);
 		}
 		manager.close(conn);
 	}
@@ -87,7 +86,7 @@ public class RepositoryCountry extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			repository.closestatement(preparedStatement);
+			closestatement(preparedStatement);
 		}
 
 		manager.close(conn);
@@ -112,8 +111,8 @@ public class RepositoryCountry extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			repository.closeresultset(resultSet);
-			repository.closestatement(prepareStatement);
+			closeresultset(resultSet);
+			closestatement(prepareStatement);
 		}
 		manager.close(conn);
 		return listcountry;
@@ -130,7 +129,7 @@ public class RepositoryCountry extends Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			repository.closestatement(preparedStatement);
+			closestatement(preparedStatement);
 			manager.close(conn);
 
 		}
