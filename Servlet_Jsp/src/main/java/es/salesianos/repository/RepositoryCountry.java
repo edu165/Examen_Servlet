@@ -18,22 +18,8 @@ public class RepositoryCountry {
 	static ConnectionManager manager = new ConnectionH2();
 	Connection connection = null;
 		Statement statement = null;
-public  void closeresultset(ResultSet resultSet) {
-			try {
-				resultSet.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-		}
-private  void closestatement(Statement statement) {
-			try {
-				statement.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-		}
+		Repository repository = new Repository();
+
 public void createtablecountry() {
 		Connection connection = null;
 		Statement statement = null;
@@ -45,7 +31,8 @@ public void createtablecountry() {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			 closestatement(statement);
+			repository.closestatement( statement);
+			 
 			manager.close(connection);
 			}
 	}
@@ -68,8 +55,8 @@ public void createtablecountry() {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closeresultset(resultSet);
-			closestatement(prepareStatement);
+			repository.closeresultset(resultSet);
+			repository.closestatement( prepareStatement);
 			
 		}
 		manager.close(conn);
@@ -91,7 +78,7 @@ public void createtablecountry() {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closestatement(preparedStatement);
+			repository.closestatement(preparedStatement);
 		}
 		manager.close(conn);
 	}
@@ -108,7 +95,7 @@ public void createtablecountry() {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closestatement(preparedStatement);
+			repository.closestatement(preparedStatement);
 		}
 		
 		
@@ -133,8 +120,8 @@ public void createtablecountry() {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}finally {
-			closeresultset(resultSet);
-			closestatement(prepareStatement);
+			repository.closeresultset(resultSet);
+			repository.closestatement(prepareStatement);
 		}
 		manager.close(conn);
 		return listcountry;
@@ -154,7 +141,7 @@ public void createtablecountry() {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			closestatement(preparedStatement);
+			repository.closestatement(preparedStatement);
 			manager.close(conn);
 			
 			
