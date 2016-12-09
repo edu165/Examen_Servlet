@@ -33,7 +33,7 @@
 			</tr>
 			<tr>
 				<td><p>idioma Nuevo:</p></td>
-				<td><input type="text" id="Newlanguage" name="Newlanguage" size="30"></td>
+				<td><input type="text" id="newlanguage" name="newlanguage" size="30"></td>
 			<tr>
 			<tr>
 				<td><p>Idioma Select:</p></td>
