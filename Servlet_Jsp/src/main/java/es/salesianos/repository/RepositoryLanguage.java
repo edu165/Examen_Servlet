@@ -35,7 +35,7 @@ public class RepositoryLanguage extends Repository {
 		}
 	}
 
-	public void insertlanguage(Language countryform) {
+	public void insertLaguages(Language countryform) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {

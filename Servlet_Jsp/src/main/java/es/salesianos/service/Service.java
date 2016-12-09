@@ -27,14 +27,14 @@ public class Service {
 	public Language assembleLanguagerFromRequest(HttpServletRequest req) {
 		return LanguageAssembler.assemblecountryFrom(req);
 	}
-	public void createtable(){
+	public void createTable(){
 		repositorycountry.createtablecountry();;;
 		repositorylanguage.createrablelanguage();
 		
 	}
-	public void insertlaguages(Language language){
+	public void insertLaguages(Language language){
 		
-		repositorylanguage.insertlanguage(language);
+		repositorylanguage.insertLaguages(language);
 	}
 	public List searchAllCountries(){
 		return repositorycountry.searchallcountry();

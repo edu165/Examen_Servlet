@@ -28,9 +28,9 @@ public class InfoDataServlet extends HttpServlet{
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Country country = service.assembleCountryFromRequest(req);
 		Language language = service.assembleLanguagerFromRequest(req);
-		service.createtable();
+		service.createTable();
 	    service.insertorupdate(country);
-		service.insertlaguages(language);
+		service.insertLaguages(language);
         redirect(req,resp);
 	}
 
