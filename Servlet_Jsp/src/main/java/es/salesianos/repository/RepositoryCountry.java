@@ -7,20 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import es.salesianos.connection.ConnectionH2;
-import es.salesianos.connection.ConnectionManager;
-import es.salesianos.model.Language;
+
 import es.salesianos.model.Country;
 
-public class RepositoryCountry {
-	
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test2";
-	static ConnectionManager manager = new ConnectionH2();
+public class RepositoryCountry extends Repository {
 	Connection connection = null;
-		Statement statement = null;
-		Repository repository = new Repository();
+	Statement statement = null;
+	Repository repository = new Repository();
 
-public void createtablecountry() {
+	public void createtablecountry() {
 		Connection connection = null;
 		Statement statement = null;
 		try {
@@ -31,14 +26,14 @@ public void createtablecountry() {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			repository.closestatement( statement);
-			 
+			repository.closestatement(statement);
+
 			manager.close(connection);
-			}
+		}
 	}
 
 	public Country search(Country CountryFormulario) {
-		Country countryInDatabase= null;
+		Country countryInDatabase = null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
@@ -46,43 +41,40 @@ public void createtablecountry() {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises WHERE Pais = ?");
 			prepareStatement.setString(1, CountryFormulario.getCountry());
 			resultSet = prepareStatement.executeQuery();
-			while(resultSet.next()){
+			while (resultSet.next()) {
 				countryInDatabase = new Country();
 				countryInDatabase.setCountry(resultSet.getString(1));
 				countryInDatabase.setLanguage(resultSet.getString(2));
-				}
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
-		}finally {
+		} finally {
 			repository.closeresultset(resultSet);
-			repository.closestatement( prepareStatement);
-			
+			repository.closestatement(prepareStatement);
+
 		}
 		manager.close(conn);
 		return countryInDatabase;
 	}
 
-
-
 	public void insertpaises(Country countryFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn.prepareStatement("INSERT INTO Paises (pais, idioma)" +
-					"VALUES (?, ?)");
+			preparedStatement = conn.prepareStatement("INSERT INTO Paises (pais, idioma)" + "VALUES (?, ?)");
 			preparedStatement.setString(1, countryFormulario.getCountry());
 			preparedStatement.setString(2, countryFormulario.getLanguage());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
-		}finally {
+		} finally {
 			repository.closestatement(preparedStatement);
 		}
 		manager.close(conn);
 	}
-	
+
 	public void update(Country countryform) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -94,48 +86,45 @@ public void createtablecountry() {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
-		}finally {
+		} finally {
 			repository.closestatement(preparedStatement);
 		}
-		
-		
+
 		manager.close(conn);
 	}
-	public  List searchallcountry() {
-		List<Country> listcountry= new ArrayList<Country>();
+
+	public List searchallcountry() {
+		List<Country> listcountry = new ArrayList<Country>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises");
 			resultSet = prepareStatement.executeQuery();
-			while(resultSet.next()){
+			while (resultSet.next()) {
 				Country countryInDatabase = new Country();
 				countryInDatabase.setCountry(resultSet.getString(1));
 				countryInDatabase.setLanguage(resultSet.getString(2));
 				listcountry.add(countryInDatabase);
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
-		}finally {
+		} finally {
 			repository.closeresultset(resultSet);
 			repository.closestatement(prepareStatement);
 		}
 		manager.close(conn);
 		return listcountry;
 	}
-	
 
-	
-	
 	public void deletecountry(String country) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
 		try {
-		    preparedStatement = conn.prepareStatement("DELETE from Paises where idioma=? ");
+			preparedStatement = conn.prepareStatement("DELETE from Paises where idioma=? ");
 			preparedStatement.setString(1, country);
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {
@@ -143,12 +132,8 @@ public void createtablecountry() {
 		} finally {
 			repository.closestatement(preparedStatement);
 			manager.close(conn);
-			
-			
+
 		}
 	}
-	
-
 
 }
-	
