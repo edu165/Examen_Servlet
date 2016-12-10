@@ -16,7 +16,7 @@ public class RepositoryLanguage extends Repository {
 
 	static ConnectionManager manager = new ConnectionH2();
 
-	public void createrablelanguage() {
+	public void createTableLanguage() {
 		Connection connection = null;
 		Statement statement = null;
 
@@ -27,7 +27,7 @@ public class RepositoryLanguage extends Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			closestatement(statement);
+			closeStatement(statement);
 			manager.close(connection);
 
 		}
@@ -44,13 +44,13 @@ public class RepositoryLanguage extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			closestatement(preparedStatement);
+			closeStatement(preparedStatement);
 		}
 
 		manager.close(conn);
 	}
 
-	public List<Language> searchalllanguages() {
+	public List<Language> searchallLanguages() {
 		List<Language> listcountry = new ArrayList<Language>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -68,15 +68,15 @@ public class RepositoryLanguage extends Repository {
 			throw new RuntimeException(e);
 		} finally {
 
-			closeresultset(resultSet);
-			closestatement(prepareStatement);
+			closeResultSet(resultSet);
+			closeStatement(prepareStatement);
 		}
 
 		manager.close(conn);
 		return listcountry;
 	}
 
-	public void deletelanguage(String language) {
+	public void deleteLanguage(String language) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
@@ -88,7 +88,7 @@ public class RepositoryLanguage extends Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			closestatement(preparedStatement);
+			closeStatement(preparedStatement);
 			manager.close(conn);
 
 		}

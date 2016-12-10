@@ -14,7 +14,7 @@ public class RepositoryCountry extends Repository {
 	Connection connection = null;
 	Statement statement = null;
 
-	public void createtablecountry() {
+	public void createTableCountry() {
 		Connection connection = null;
 		Statement statement = null;
 		try {
@@ -25,20 +25,20 @@ public class RepositoryCountry extends Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			closestatement(statement);
+			closeStatement(statement);
 
 			manager.close(connection);
 		}
 	}
 
-	public Country search(Country CountryFormulario) {
+	public Country search(Country countryFormulario) {
 		Country countryInDatabase = null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
 		try {
 			prepareStatement = conn.prepareStatement("SELECT * FROM Paises WHERE Pais = ?");
-			prepareStatement.setString(1, CountryFormulario.getCountry());
+			prepareStatement.setString(1, countryFormulario.getCountry());
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
 				countryInDatabase = new Country();
@@ -49,15 +49,15 @@ public class RepositoryCountry extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			closeresultset(resultSet);
-			closestatement(prepareStatement);
+			closeResultSet(resultSet);
+			closeStatement(prepareStatement);
 
 		}
 		manager.close(conn);
 		return countryInDatabase;
 	}
 
-	public void insertpaises(Country countryFormulario) {
+	public void insertCountry(Country countryFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
@@ -69,7 +69,7 @@ public class RepositoryCountry extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			closestatement(preparedStatement);
+			closeStatement(preparedStatement);
 		}
 		manager.close(conn);
 	}
@@ -86,13 +86,13 @@ public class RepositoryCountry extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			closestatement(preparedStatement);
+			closeStatement(preparedStatement);
 		}
 
 		manager.close(conn);
 	}
 
-	public List searchallcountry() {
+	public List searchAllcountry() {
 		List<Country> listcountry = new ArrayList<Country>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
@@ -111,14 +111,14 @@ public class RepositoryCountry extends Repository {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
-			closeresultset(resultSet);
-			closestatement(prepareStatement);
+			closeResultSet(resultSet);
+			closeStatement(prepareStatement);
 		}
 		manager.close(conn);
 		return listcountry;
 	}
 
-	public void deletecountry(String country) {
+	public void deleteCountry(String country) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 
@@ -129,7 +129,7 @@ public class RepositoryCountry extends Repository {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			closestatement(preparedStatement);
+			closeStatement(preparedStatement);
 			manager.close(conn);
 
 		}

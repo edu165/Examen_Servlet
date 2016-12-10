@@ -14,7 +14,7 @@ public class Repository {
 	Connection connection = null;
 	Statement statement = null;
 
-	public void closestatement(Statement statement) {
+	public void closeStatement(Statement statement) {
 		try {
 			statement.close();
 		} catch (SQLException e) {
@@ -23,7 +23,7 @@ public class Repository {
 		}
 	}
 
-	public void closeresultset(ResultSet resultSet) {
+	public void closeResultSet(ResultSet resultSet) {
 		try {
 			resultSet.close();
 		} catch (SQLException e) {

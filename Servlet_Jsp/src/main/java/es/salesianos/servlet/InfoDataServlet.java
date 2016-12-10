@@ -29,7 +29,7 @@ public class InfoDataServlet extends HttpServlet{
 		Country country = service.assembleCountryFromRequest(req);
 		Language language = service.assembleLanguagerFromRequest(req);
 		service.createTable();
-	    service.insertorupdate(country);
+	    service.insertOrUpdate(country);
 		service.insertLaguages(language);
         redirect(req,resp);
 	}
