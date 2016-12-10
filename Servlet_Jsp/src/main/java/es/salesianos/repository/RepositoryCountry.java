@@ -74,13 +74,13 @@ public class RepositoryCountry extends Repository {
 		manager.close(conn);
 	}
 
-	public void update(Country countryform) {
+	public void update(Country countryForm) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn.prepareStatement("UPDATE paises SET idioma=?  where pais=?");
-			preparedStatement.setString(1, countryform.getLanguage());
-			preparedStatement.setString(2, countryform.getCountry());
+			preparedStatement.setString(1, countryForm.getLanguage());
+			preparedStatement.setString(2, countryForm.getCountry());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
