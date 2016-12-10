@@ -24,7 +24,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ListadoServlet</servlet-name>
-		<url-pattern>list</url-pattern>
+		<url-pattern>List</url-pattern>
 	</servlet-mapping>
 
 	<servlet>

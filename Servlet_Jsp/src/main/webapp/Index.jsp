@@ -33,23 +33,21 @@
 			</tr>
 			<tr>
 				<td><p>idioma Nuevo:</p></td>
-				<td><input type="text" id="newlanguage" name="newlanguage" size="30"></td>
+				<td><input type="text" id="newlanguage" name="newlanguage"
+					size="30"></td>
 			<tr>
 			<tr>
 				<td><p>Idioma Select:</p></td>
 				<td><select name="language" id="language">
-				
-					<%  
+
+						<%  
 						Service service = new Service();
 						List<Language> listAllLanguages = service.SearchAllIlanguage(); 
 						for (Language language: listAllLanguages){
 						   out.println("<option value ='"+language.getLanguage()+"'>"+language.getLanguage()+"</option>");
 						}
 					%>
-				</select>
-				
-
-				</select></td>
+				</select> </select></td>
 			<tr>
 				<td colspan="2" align="right"><input class="boton"
 					type="submit" value="Enviar"></td>

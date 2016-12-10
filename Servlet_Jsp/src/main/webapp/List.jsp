@@ -29,7 +29,7 @@
 				<table width="40%" align="center">
 					<tr>
 						<td>
-							<form action="list" method="post">
+							<form action="List" method="post">
 								<input class="boton" type="submit" value="verlistado">
 							</form>
 						</td>
@@ -38,11 +38,9 @@
 					</tr>
 				</table>
 			</div>
-
-
-			<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+             <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 			<div class="col-lg-4 col-sm-6 offset-xl-6 -col-md-2">
-				<table border="3" width="30%" align="center">
+				<table border="3" width="50%" height="50%" align="center">
 					<thead>
 						<tr>
 							<td>Pais</td>
@@ -58,40 +56,14 @@
 								<td><c:out value="${country.language}" /></td>
 
 
-								<td><a class="botonmin" name="countryDelete"
+								<td><a name="countryDelete"
 									href="Delete_Warning?countrydelete=${country.language}">Borrar
-										Idiomas </a></td>
-
-
-								</form>
-								</td>
-
-								</form>
-							</tr>
+										Idiomas </a></
+										</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
-		</div>
-	</div>
 
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-
-
-
-
-
-
-
-
-
-
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 </body>
 </html>

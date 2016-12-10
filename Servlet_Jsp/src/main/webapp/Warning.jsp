@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="refresh" content="5;url=Paises.jsp" />
 <title>Warning</title>
 
 </head>
@@ -13,8 +12,9 @@
 		<h1>ESTO PUEDE SER ELIMINADO</h1>
 		<form method="post" action="delete">
 			<input type="hidden" value="${id}" name="countryDelete"> <br>
-			<input class="boton" type="submit" value="SI, estoy seguro">
-			<a class="boton" href="List.jsp">NO, quiero eliminarlo</a>
+			<input class="boton" type="submit" value="SI"> <input
+				class="boton" type="button"
+				onclick="window.location.href='Index.jsp'" value="No">
 		</form>
 	</center>
 </body>

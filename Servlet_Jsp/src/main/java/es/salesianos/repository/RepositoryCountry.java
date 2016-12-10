@@ -92,7 +92,7 @@ public class RepositoryCountry extends Repository {
 		manager.close(conn);
 	}
 
-	public List searchAllcountry() {
+	public List<Country> searchAllcountry() {
 		List<Country> listcountry = new ArrayList<Country>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
